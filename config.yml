@@ -1,5 +1,5 @@
 title: William Olichney
-logo: assets/Commencement.JPG
-#description: show text below
+logo: ./assets/Commencement.JPG
+description: show text below
 show_downloads: true
 theme: jekyll-theme-minimal
