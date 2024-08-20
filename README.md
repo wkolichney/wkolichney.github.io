@@ -1,2 +1,5 @@
-# wkolichney.github.io
-#Practice creating a portfolio demonstrating data science projects as well as previous humanities projects
+# Master of Science in Busniess Analytics Graduate Student
+
+###Education
+William & Mary, Raymond A. Mason School of Business
+Master of Science in Busniess Analytics                Expected Graudation: May 2025
