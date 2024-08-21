@@ -1,6 +1,6 @@
 # Master of Science in Business Analytics Graduate Student
 
-(/assets/headshot.jpg)
+(assets/headshot.jpg)
 
 ### Education
 **William & Mary, Raymond A. Mason School of Business**  
