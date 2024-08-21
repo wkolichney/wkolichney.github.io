@@ -1,5 +1,7 @@
 # Master of Science in Business Analytics Graduate Student
 
+<PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=3300x2550 at 0x1E1AE7A72F0>
+
 ### Education
 **William & Mary, Raymond A. Mason School of Business**  
 Master of Science in Business Analytics  
