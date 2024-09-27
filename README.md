@@ -45,7 +45,9 @@ Taiwan Intensive Summer Language Program, American Councils, US State Department
 *June - August 2022*  
 - Developed a digital humanities curation project to preserve the house of the first African American whaling captain in collaboration with the University of Massachusetts and the Museum of African American History  
 - Utilized Arc GIS software with archived primary sources such as handwritten journals, artifacts, and GIS map data to tell a story on an intercultural connection between African American history and China  
-- Earned six graduate school level credit hours in historic preservation before my 3rd year of undergrad and was the youngest person in the program  
+- Earned six graduate school level credit hours in historic preservation before my 3rd year of undergrad and was the youngest person in the program
+
+[![Conference Presentation](https://img.youtube.com/vi/TKMt_1rrYmk/0.jpg)](https://www.youtube.com/watch?v=TKMt_1rrYmk&t=11738s)
 
 **Randolph College, Summer Research Program, Lynchburg, VA**  
 *Thesis: Military Roots of Anti-Asianism in the US*  
