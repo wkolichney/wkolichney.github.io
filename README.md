@@ -50,7 +50,7 @@ Taiwan Intensive Summer Language Program, American Councils, US State Department
 <a href="https://www.youtube.com/watch?v=TKMt_1rrYmk&t=11738s">
     <img src="https://img.youtube.com/vi/TKMt_1rrYmk/0.jpg" alt="Conference Presentation" />
 </a>
-*Click the image above to see my presentation*
+Click the image above to see my presentation
 
 **Randolph College, Summer Research Program, Lynchburg, VA**  
 *Thesis: Military Roots of Anti-Asianism in the US*  
