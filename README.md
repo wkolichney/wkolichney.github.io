@@ -65,7 +65,6 @@ Click the image above to see my presentation
 ## Work Experience
 
 #### **Research Data Associate, AidData**
-
 *January 2025 - June 2025*
 - Utilized Mandarin language skills to identify relevant loan-level data for Chinese financial flows to low- and middle-income countries.
 
@@ -111,6 +110,11 @@ Click the image above to see my presentation
 -Using publicly accessible data from the CDC, created a database that tracks salmonella outbreaks in the United States by strain and type of venue
 
 -Proposed recommendations to improve data tracking and accessibility for the CDC
+
+#### **Forecasting Starbucks Revenue and Google Trends Data**
+- Predicted Starbucks' most recent quarterly revenue and Google search trends using stochastic modeling, machine learning, and market research techniques
+- Achieved model accuracy that predicted Starbucks' revenue within a margin of less than half a million dollars.
+
 
 ## Activities
 
