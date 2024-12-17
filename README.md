@@ -114,12 +114,12 @@ Click the image above to see my presentation
 *August 2022 - May 2024*  
 - Interpreted Mandarin for multi-stakeholder collaboration, leading to an event attended by 30+ people  
 - Led the club to be the 4th most active out of 20 clubs, with over 15 events centered on arts, academics, and media  
-<br>
+  
 **President, Vice-President, Treasurer, Founder, Randolph College Excursions Club**  
 *September 2021 - May 2024*  
 - Founded and led an outdoor club to be the 5th most active out of 20 active clubs with over 10 events for rock climbing and hiking  
 - Managed a budget exceeding $1,500, coordinating with external vendors and fundraising efforts  
-<br>
+  
 **Men’s Lacrosse Goalie, Randolph College**  
 *2021-2022*  
 - Played a starting position in the highly competitive Division III Old Dominion Athletic Conference despite no prior experience in the sport  
