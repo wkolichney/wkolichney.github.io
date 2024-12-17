@@ -9,7 +9,7 @@ Business Analytics graduate student and US citizen with experience in data analy
 Master of Science in Business Analytics  
 *Expected Graduation: May 2025*  
 - Coursework: Machine Learning (ML), Database Management, Optimization, Big Data, AI, Stochastic Modeling  
-- Recommended retail business strategy to improve supply chain resiliency after filtering datasets over 1 million rows and researching field practices. This recommendation earned “Honorable Mention,” or in the top 5.
+- Recommended retail business strategy to improve supply chain resiliency by analyzing datasets of 1M+ rows and researching field practices. Earned “Honorable Mention” (Top 5).
 
 **Randolph College**  
 Bachelor of Arts in Economics and History  
@@ -25,15 +25,15 @@ Taiwan Intensive Summer Language Program, American Councils, US State Department
 ### Skills
 
 - Programming Languages and Data Modeling: R, Python, STATA, SQL, Tableau  
-- Languages: Mandarin-Limited Professional Working Proficiency (OPI tested and ACTFL Rated)
+- Languages: Mandarin-Limited Professional Working Proficiency (ACTFL Rated)
 
 ### Research Experience
 
 **Senior Research, Randolph College, Economics**  
 *Thesis: America’s Environmental Kuznets Curve: Embodied Emissions of the U.S.-China Trade*  
 *Fall 2023 - Spring 2024*  
-- Constructed a multivariable linear regression for hypothesis testing in analyzing carbon data using STATA and Excel, filtering datasets over 30,000 rows  
-- Presented at an academic conference to scholars with technical and non-technical backgrounds  
+- Constructed multivariable linear regressions to analyze carbon data in STATA and Excel, filtering datasets of 30,000+ rows
+- Presented findings at an academic conference to technical and non-technical audiences
 
 **Senior Research, Randolph College, History**  
 *Thesis: Kissinger and Taiwan: Kissinger’s Initiative and Perspective on Taiwan During the Rapprochement Era*  
@@ -45,7 +45,7 @@ Taiwan Intensive Summer Language Program, American Councils, US State Department
 *June - August 2022*  
 - Developed a digital humanities curation project to preserve the house of the first African American whaling captain in collaboration with the University of Massachusetts and the Museum of African American History  
 - Utilized Arc GIS software with archived primary sources such as handwritten journals, artifacts, and GIS map data to tell a story on an intercultural connection between African American history and China  
-- Earned six graduate school level credit hours in historic preservation before my 3rd year of undergrad and was the youngest person in the program
+- Earned 6 graduate credits in historic preservation as the youngest program participant
 
 <a href="https://www.youtube.com/watch?v=TKMt_1rrYmk&t=11738s">
     <img src="https://img.youtube.com/vi/TKMt_1rrYmk/0.jpg" alt="Conference Presentation" />
@@ -56,12 +56,12 @@ Click the image above to see my presentation
 **Randolph College, Summer Research Program, Lynchburg, VA**  
 *Thesis: Military Roots of Anti-Asianism in the US*  
 *Summer 2021*  
-- Combined historical and data analysis using Gallup Poll data, newspaper archives, and newsreel footage to explore US citizens' changing perceptions of the Korean and Vietnam Wars  
+- Combined historical analysis and data analytics (Gallup Polls, newsreels, archives) to explore public perceptions of the Korean and Vietnam Wars  
 
 **National Tsing Hua University, Oral Presentation, Hsinchu, Taiwan**  
 *Summer 2023*  
-- Fluently presented historical and economic review of redlining completely in Mandarin, earning the highest grade in the class
-- 
+- Presented a historical and economic review of redlining entirely in Mandarin, earning the highest grade in class
+  
 ### Work Experience
 
 **Research Data Associate, AidData**
@@ -72,20 +72,19 @@ Click the image above to see my presentation
 
 **Gold Key Guide, Randolph College Admissions**  
 *Fall 2021 – Spring 2024*  
-- Awarded "Tour Guide of the Year" by tailoring tours to prospective students’ backgrounds and showcasing campus opportunities.  
-- Routinely averaged two tours a week with five participants in one-to-two-hour sessions  
-- Translated two tours into Mandarin for prospective graduate and Ph.D. candidates  
+- Awarded "Tour Guide of the Year" for customizing tours to prospective students’ interests  
+- Delivered over 100 tours, including 2 tours in Mandarin for prospective international students  
 
 **Intern Bank Teller, Student Manager Central Virginia Federal Credit Union, Madison Heights, VA**  
 *June 2016 - March 2020*  
-- Upheld safe banking practices with checks and cashier’s checks while maintaining professional customer service  
-- Handled thousands of dollars daily in transactions without direct supervision at age 16, demonstrating maturity
+- Managed thousands of dollars daily without direct supervision at age 16, demonstrating maturity and professionalism
+- Maintained secure handling of checks and cashier's checks while delivering exceptional customer service
 
 
 ### Conferences
 
 **Student Presentation, 2024 Randolph College Symposium of Artists and Scholars**  
-- *Kissinger and Taiwan: Kissinger’s Initiative and Perspective on Taiwan During the Rapprochement Era*  
+- *An Unfinished Taiwan Solution: Henry Kissinger’s Weakness on US-China Rapprochement*  
 - *America’s Environmental Kuznets Curve: Embodied Emissions of the U.S.-China Trade*  
 - *Taiwan Intensive Summer Language Program*
 
@@ -95,7 +94,19 @@ Click the image above to see my presentation
 **Student Researcher, Randolph College, 2021 Summer Research Program**  
 - *Project: U.S. Public Opinion on U.S. Wars in Asia*
 
+### Projects
 
+**Don’t Skip Satisfaction: Leveraging User Skip Data to Enhance Spotify’s Personalization**
+*October - December 2024*
+
+-Created a machine learning model to predict how likely an individual Spotify user is to skip a song based on genre, time of day, and other variables
+-Prepared marketing recommendations utilizing this data, such as additions to Spotify Wrapped and personally tailored push notifications
+
+**“Medium Rare Chicken”: Tracking Salmonella Outbreaks in the U.S.**
+*September - October 2024*
+
+-Using publicly accessible data from the CDC, created a database that tracks salmonella outbreaks in the United States by strain and type of venue
+-Proposed recommendations to improve data tracking and accessibility for the CDC
 
 ### Activities
 
@@ -124,6 +135,7 @@ Click the image above to see my presentation
 - *Outstanding Gold Key Guides*, Randolph College, 2022-23 Academic and Leadership Awards  
 - *Aaron Shacklette Team Spirit Award*, Men’s Lacrosse, Randolph College 2021-2022 Athletic Awards  
 - Member: Phi Beta Kappa; Omicron Delta Kappa; Omicron Delta Epsilon; Phi Alpha Theta  
+
 
 
 
