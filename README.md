@@ -100,12 +100,14 @@ Click the image above to see my presentation
 *October - December 2024*
 
 -Created a machine learning model to predict how likely an individual Spotify user is to skip a song based on genre, time of day, and other variables
+
 -Prepared marketing recommendations utilizing this data, such as additions to Spotify Wrapped and personally tailored push notifications
 
 **“Medium Rare Chicken”: Tracking Salmonella Outbreaks in the U.S.**
 *September - October 2024*
 
 -Using publicly accessible data from the CDC, created a database that tracks salmonella outbreaks in the United States by strain and type of venue
+
 -Proposed recommendations to improve data tracking and accessibility for the CDC
 
 ### Activities
