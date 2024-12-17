@@ -1,7 +1,7 @@
 # Master of Science in Business Analytics Graduate Student
 
 ### Summary
-Business Analytics graduate student and US citizen with experience in data analysis, handling ad hoc queries, economic and historical research, and leading cross-cultural interactions between Mandarin and English-speaking communities. Proven expertise in regression analysis, coding, and community leadership. Eager to leverage resilience and analytical skills for topics in international development.
+Business Analytics graduate student and US citizen with experience in data analysis, economic and historical research, and leading cross-cultural interactions between Mandarin and English-speaking communities. Proven expertise in regression analysis, coding, and community leadership. Eager to leverage resilience and analytical skills for topics in international development.
 
 ### Education
 
@@ -76,6 +76,11 @@ Click the image above to see my presentation
 - *Project: U.S. Public Opinion on U.S. Wars in Asia*
 
 ### Work Experience
+
+**Research Data Associate, AidData**
+*January 2025 - June 2025*
+- Utilized Mandarin language skills to identify relevant loan-level data for Chinese financial flows to low- and middle-income countries.
+
 
 **Gold Key Guide, Randolph College Admissions**  
 *Fall 2021 – Spring 2024*  
