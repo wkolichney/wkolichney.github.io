@@ -60,7 +60,27 @@ Click the image above to see my presentation
 
 **National Tsing Hua University, Oral Presentation, Hsinchu, Taiwan**  
 *Summer 2023*  
-- Fluently presented historical and economic review of redlining completely in Mandarin, earning the highest grade in the class  
+- Fluently presented historical and economic review of redlining completely in Mandarin, earning the highest grade in the class
+- 
+### Work Experience
+
+**Research Data Associate, AidData**
+
+*January 2025 - June 2025*
+- Utilized Mandarin language skills to identify relevant loan-level data for Chinese financial flows to low- and middle-income countries.
+
+
+**Gold Key Guide, Randolph College Admissions**  
+*Fall 2021 – Spring 2024*  
+- Awarded "Tour Guide of the Year" by tailoring tours to prospective students’ backgrounds and showcasing campus opportunities.  
+- Routinely averaged two tours a week with five participants in one-to-two-hour sessions  
+- Translated two tours into Mandarin for prospective graduate and Ph.D. candidates  
+
+**Intern Bank Teller, Student Manager Central Virginia Federal Credit Union, Madison Heights, VA**  
+*June 2016 - March 2020*  
+- Upheld safe banking practices with checks and cashier’s checks while maintaining professional customer service  
+- Handled thousands of dollars daily in transactions without direct supervision at age 16, demonstrating maturity
+
 
 ### Conferences
 
@@ -75,23 +95,7 @@ Click the image above to see my presentation
 **Student Researcher, Randolph College, 2021 Summer Research Program**  
 - *Project: U.S. Public Opinion on U.S. Wars in Asia*
 
-### Work Experience
 
-**Research Data Associate, AidData**
-*January 2025 - June 2025*
-- Utilized Mandarin language skills to identify relevant loan-level data for Chinese financial flows to low- and middle-income countries.
-
-
-**Gold Key Guide, Randolph College Admissions**  
-*Fall 2021 – Spring 2024*  
-- Awarded "Tour Guide of the Year" by tailoring tours to prospective students’ backgrounds and showcasing campus opportunities.  
-- Routinely averaged two tours a week with five participants in one-to-two-hour sessions  
-- Translated two tours into Mandarin for prospective graduate and Ph.D. candidates  
-
-**Intern Bank Teller, Student Manager Central Virginia Federal Credit Union, Madison Heights, VA**  
-*June 2016 - March 2020*  
-- Upheld safe banking practices with checks and cashier’s checks while maintaining professional customer service  
-- Handled thousands of dollars daily in transactions without direct supervision at age 16, demonstrating maturity  
 
 ### Activities
 
