@@ -65,9 +65,11 @@ Click the image above to see my presentation
 ## Work Experience
 
 #### **Research Data Associate, AidData**
-*January 2025 - June 2025*
-- Utilized Mandarin language skills to identify relevant loan-level data for Chinese financial flows to low- and middle-income countries.
-
+*Since December 2025*
+- Utilized Python to automatically identify 200+ suspicious data entries, saving from having to hand check 1400+ rows of data.
+- Extracted and structured loan-level data from decades of developing nations' financial reports, applying pattern recognition and verification techniques to enhance data reliability.
+- Led investigative research on Libya’s debt, uncovering discrepancies and debunking inaccurate media reports, ensuring data integrity for financial modeling.
+- Transformed unstructured financial data into standardized formats on Google Sheets, preparing datasets for   predictive modeling and advanced statistical analysis
 
 #### **Gold Key Guide, Randolph College Admissions**  
 *Fall 2021 – Spring 2024*  
