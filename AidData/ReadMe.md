@@ -1,4 +1,4 @@
-# AidData Workflow
+# AidData Workflows
 
 ### Author: William Olichney, Research Data Associate
 
