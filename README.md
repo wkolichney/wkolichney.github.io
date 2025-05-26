@@ -1,152 +1,179 @@
-# Master of Science in Business Analytics Graduate Student
+# William K. Olichney  
+wkolichney@wm.edu ·  [LinkedIn](https://www.linkedin.com/in/william-olichney)
+
+---
+
+## Master of Science in Business Analytics Graduate Student
 
 ### Summary
-Business Analytics graduate student and US citizen with experience in data analysis, economic and historical research, and leading cross-cultural interactions between Mandarin and English-speaking communities. Proven expertise in regression analysis, coding, and community leadership. Eager to leverage resilience and analytical skills for topics in international development.
+Business Analytics graduate student and U.S. citizen with experience in data analysis, economic and historical research, and facilitating Mandarin-English cross-cultural exchange. Skilled in regression analysis, machine learning, and community leadership. Passionate about applying quantitative methods to international development and global finance.
+
+---
 
 ## Education
 
-#### **William & Mary, Raymond A. Mason School of Business**  
-Master of Science in Business Analytics  
+### William & Mary, Raymond A. Mason School of Business  
+**Master of Science in Business Analytics**  
 *Expected Graduation: May 2025*  
-- Coursework: Machine Learning (ML), Database Management, Optimization, Big Data, AI, Stochastic Modeling  
-- Recommended retail business strategy to improve supply chain resiliency by analyzing datasets of 1M+ rows and researching field practices. Earned “Honorable Mention” (Top 5).
+- Coursework: Machine Learning, Database Management, Optimization, Big Data, AI, Stochastic Modeling  
+- Analyzed datasets of 1M+ rows to recommend retail supply chain strategies; earned Honorable Mention (Top 5)
 
-#### **Randolph College**  
-Bachelor of Arts in Economics and History  
+### Randolph College  
+**Bachelor of Arts in Economics and History**  
 *Graduation: May 2024*  
 - Relevant coursework: Econometrics, International Economics, Environmental Economics, Advanced Mandarin
 
-#### **National Tsing Hua University**  
-Taiwan Intensive Summer Language Program, American Councils, US State Department  
-*June 2023 - August 2023*  
-- Completed language-intensive study abroad including a curriculum of 160 hours of Mandarin study  
-- Led a class performance in Mandarin by serving as a master of ceremonies, creating choreography, and serving as class representative to manage expectations between professors and students  
+### National Tsing Hua University  
+**Taiwan Intensive Summer Language Program (Fulbright-Hays)**  
+*June 2023 – August 2023*  
+- Completed 160 hours of Mandarin instruction  
+- Served as master of ceremonies, choreographer, and class representative for program-wide performance
 
-### Skills
+---
 
-- Programming Languages and Data Modeling: R, Python, STATA, SQL, Tableau  
-- Languages: Mandarin-Limited Professional Working Proficiency (ACTFL Rated)
+## Skills
+
+- **Programming & Data Modeling**: R, Python, STATA, SQL, Tableau  
+- **Languages**: Mandarin – Limited Professional Proficiency (ACTFL OPI Rated)
+
+---
 
 ## Research Experience
 
-#### **Senior Research, Randolph College, Economics**  
-*Thesis: America’s Environmental Kuznets Curve: Embodied Emissions of the U.S.-China Trade*  
-*Fall 2023 - Spring 2024*  
-- Constructed multivariable linear regressions to analyze carbon data in STATA and Excel, filtering datasets of 30,000+ rows
-- Presented findings at an academic conference to technical and non-technical audiences
+### Randolph College, Economics Senior Thesis  
+**America’s Environmental Kuznets Curve: Embodied Emissions of the U.S.-China Trade**  
+*Fall 2023 – Spring 2024*  
+- Built multivariate regressions on 30,000+ rows of carbon data  
+- Presented findings at academic symposium to technical and general audiences
 
-#### **Senior Research, Randolph College, History**  
-*Thesis: Kissinger and Taiwan: Kissinger’s Initiative and Perspective on Taiwan During the Rapprochement Era*  
-*Fall 2023 - Spring 2024*  
-- Authored a 20-page historical analysis on topics such as US-China diplomacy, Taiwan-China relations, and national security using archived transcripts  
+### Randolph College, History Senior Thesis  
+**Kissinger and Taiwan: U.S.-China Diplomacy during the Rapprochement Era**  
+*Fall 2023 – Spring 2024*  
+- Conducted archival research and wrote 20-page historical analysis on national security and diplomacy
 
-#### **University of Florida, Preservation Institute Nantucket**  
-*Project: Nantucket Tea: A Passive Curation*  
-*June - August 2022*  
-- Developed a digital humanities curation project to preserve the house of the first African American whaling captain in collaboration with the University of Massachusetts and the Museum of African American History  
-- Utilized Arc GIS software with archived primary sources such as handwritten journals, artifacts, and GIS map data to tell a story on an intercultural connection between African American history and China  
-- Earned 6 graduate credits in historic preservation as the youngest program participant
+### University of Florida, Preservation Institute Nantucket  
+**Digital Humanities Curation: Nantucket Tea**  
+*Summer 2022*  
+- Created ArcGIS-based digital exhibition on the first African American whaling captain’s home  
+- Earned 6 graduate credits; youngest participant selected
 
-<a href="https://www.youtube.com/watch?v=TKMt_1rrYmk&t=11738s">
-    <img src="https://img.youtube.com/vi/TKMt_1rrYmk/0.jpg" alt="Conference Presentation" />
-</a>
-<br>
-Click the image above to see my presentation
+[![Conference Presentation](https://img.youtube.com/vi/TKMt_1rrYmk/0.jpg)](https://www.youtube.com/watch?v=TKMt_1rrYmk&t=11738s)  
+*Click the image above to view presentation*
 
-#### **Randolph College, Summer Research Program, Lynchburg, VA**  
-*Thesis: Military Roots of Anti-Asianism in the US*  
+### Randolph College Summer Research Program  
+**Military Roots of Anti-Asianism in the U.S.**  
 *Summer 2021*  
-- Combined historical analysis and data analytics (Gallup Polls, newsreels, archives) to explore public perceptions of the Korean and Vietnam Wars  
+- Used archival data and Gallup polls to analyze wartime public opinion during Korea and Vietnam conflicts
 
-#### **National Tsing Hua University, Oral Presentation, Hsinchu, Taiwan**  
+### National Tsing Hua University  
+**Mandarin Oral Presentation**  
 *Summer 2023*  
-- Presented a historical and economic review of redlining entirely in Mandarin, earning the highest grade in class
-  
+- Delivered a class-best oral presentation on redlining’s historical and economic effects, fully in Mandarin
+
+---
+
 ## Work Experience
 
-#### **Research Data Associate, AidData**
-*Since December 2025*
-- Utilized Python to automatically identify 200+ suspicious data entries, saving from having to hand check 1400+ rows of data.
-- Extracted and structured loan-level data from decades of developing nations' financial reports, applying pattern recognition and verification techniques to enhance data reliability.
-- Led investigative research on Libya’s debt, uncovering discrepancies and debunking inaccurate media reports, ensuring data integrity for financial modeling.
-- Transformed unstructured financial data into standardized formats on Google Sheets, preparing datasets for   predictive modeling and advanced statistical analysis
+### AidData, William & Mary  
+**Research Data Associate**  
+*December 2025 – Present*  
+- Built Python scripts to flag over 200 suspicious entries from a 1,400+ row dataset  
+- Conducted debt profile research on 200+ Chinese development loans  
+- Standardized unstructured financial data for amortization and predictive analysis  
+- Investigated and resolved misreporting in international debt statistics
 
-#### **Gold Key Guide, Randolph College Admissions**  
+### Randolph College Admissions  
+**Gold Key Guide**  
 *Fall 2021 – Spring 2024*  
-- Awarded "Tour Guide of the Year" for customizing tours to prospective students’ interests  
-- Delivered over 100 tours, including 2 tours in Mandarin for prospective international students  
+- Delivered 100+ tailored campus tours; awarded “Tour Guide of the Year”  
+- Conducted Mandarin-language tours for prospective international students
 
-#### **Intern Bank Teller, Student Manager Central Virginia Federal Credit Union, Madison Heights, VA**  
-*June 2016 - March 2020*  
-- Managed thousands of dollars daily without direct supervision at age 16, demonstrating maturity and professionalism
-- Maintained secure handling of checks and cashier's checks while delivering exceptional customer service
+### Central Virginia Federal Credit Union  
+**Student Manager & Intern Bank Teller**  
+*June 2016 – March 2020*  
+- Managed daily cash flows of $10K+ starting at age 16  
+- Trained peers in compliance and customer service best practices
 
+---
 
 ## Conferences
 
-#### **Student Presentation, 2024 Randolph College Symposium of Artists and Scholars**  
-- *An Unfinished Taiwan Solution: Henry Kissinger’s Weakness on US-China Rapprochement*  
-- *America’s Environmental Kuznets Curve: Embodied Emissions of the U.S.-China Trade*  
-- *Taiwan Intensive Summer Language Program*
+- **Randolph College Symposium of Artists and Scholars (2024)**  
+  - *Kissinger and Taiwan: U.S.-China Rapprochement*  
+  - *Environmental Kuznets Curve & U.S.-China Trade*  
+  - *Taiwan Intensive Language Program*
 
-#### **Student Presentation, 2022 AsiaNetwork Conference, Hobart and William Smith College**  
-- *Project: Military Roots of Anti-Asianism in the U.S*
+- **AsiaNetwork Conference, Hobart and William Smith College (2022)**  
+  - *Military Roots of Anti-Asianism in the U.S.*
 
-#### **Student Researcher, Randolph College, 2021 Summer Research Program**  
-- *Project: U.S. Public Opinion on U.S. Wars in Asia*
+- **Randolph College Summer Research Presentation (2021)**  
+  - *Public Opinion on U.S. Wars in Asia*
+
+---
 
 ## Projects
 
-#### **Don’t Skip Satisfaction: Leveraging User Skip Data to Enhance Spotify’s Personalization**
+### Capstone Project: Navigating Customer Survey Data 
+*Spring 2025*
 
-*October - December 2024*
+As part of a capstone project in collaboration with United Airlines, our team independently selected and applied advanced NLP techniques to analyze anonymized customer feedback and operational data.
 
--Created a machine learning model to predict how likely an individual Spotify user is to skip a song based on genre, time of day, and other variables
+We built scalable data processing pipelines and visualization dashboards using tools like Apache Spark, Docker, and Hugging Face Transformers to uncover trends and generate insights that informed high-level recommendations.
 
--Prepared marketing recommendations utilizing this data, such as additions to Spotify Wrapped and personally tailored push notifications
+**Skills Highlighted:**
 
-#### **“Medium Rare Chicken”: Tracking Salmonella Outbreaks in the U.S.**
+Data Engineering (Apache Spark, Docker)
+NLP & Topic Modeling (Hugging Face Transformers)
+Data Visualization & Dashboards (Streamlit)
+Exploratory Data Analysis & Insight Generation
 
-*September - October 2024*
 
--Using publicly accessible data from the CDC, created a database that tracks salmonella outbreaks in the United States by strain and type of venue
+### Don’t Skip Satisfaction  
+*Fall 2024*  
+- Built ML model to predict Spotify user skip behavior based on listening context  
+- Recommended personalized push notifications and new Wrapped features
 
--Proposed recommendations to improve data tracking and accessibility for the CDC
+### Medium Rare Chicken  
+*Fall 2024*  
+- Used CDC data to track U.S. salmonella outbreaks by strain and venue  
+- Proposed strategies to improve CDC foodborne illness data systems
 
-#### **Forecasting Starbucks Revenue and Google Trends Data**
-- Predicted Starbucks' most recent quarterly revenue and Google search trends using stochastic modeling, machine learning, and market research techniques
-- Achieved model accuracy that predicted Starbucks' revenue within a margin of less than half a million dollars.
+### Starbucks Revenue Forecasting  
+- Developed a stochastic model in R to predict revenue using Google Trends and market data  
+- Achieved prediction accuracy within $0.5M of actuals
 
+---
 
 ## Activities
 
-#### **President, Treasurer, Randolph College Chinese Culture Club**  
-*August 2022 - May 2024*  
-- Interpreted Mandarin for multi-stakeholder collaboration, leading to an event attended by 30+ people  
-- Led the club to be the 4th most active out of 20 clubs, with over 15 events centered on arts, academics, and media  
-  
-#### **President, Vice-President, Treasurer, Founder, Randolph College Excursions Club**  
-*September 2021 - May 2024*  
-- Founded and led an outdoor club to be the 5th most active out of 20 active clubs with over 10 events for rock climbing and hiking  
-- Managed a budget exceeding $1,500, coordinating with external vendors and fundraising efforts  
-  
-#### **Men’s Lacrosse Goalie, Randolph College**  
-*2021-2022*  
-- Played a starting position in the highly competitive Division III Old Dominion Athletic Conference despite no prior experience in the sport  
-- Ranked 2nd in the conference for goals saved, leading defensive strategy adjustments  
+### Randolph College Chinese Culture Club  
+**President / Treasurer**  
+*Aug 2022 – May 2024*  
+- Organized 15+ academic and cultural events; interpreted Mandarin at public lecture
 
-## Awards and Recognitions
+### Randolph College Excursions Club  
+**Founder / President / VP / Treasurer**  
+*Sept 2021 – May 2024*  
+- Organized over 10 hiking and climbing events; managed $1,500+ budget  
+- Negotiated vendor partnerships; reduced costs by 50%
 
-- *Student of the Year*, Randolph College, 2022-23 Academic and Leadership Awards  
-- *Fulbright-Hays Scholarship*, US Department of State, Taiwan Intensive Summer Language Program  
-- *Carl Stern Award for Excellence in Economics*, Randolph College, 2022-23 Academic and Leadership Awards  
-- *Marylin S. Murray Asian Studies Award*, Randolph College, 2022-23 Academic and Leadership Awards  
-- *Lura Lee Cannon Stephens ’11 Prize in History*, Randolph College, 2022-23 Academic and Leadership Awards  
-- *Outstanding Gold Key Guides*, Randolph College, 2022-23 Academic and Leadership Awards  
-- *Aaron Shacklette Team Spirit Award*, Men’s Lacrosse, Randolph College 2021-2022 Athletic Awards  
-- Member: Phi Beta Kappa; Omicron Delta Kappa; Omicron Delta Epsilon; Phi Alpha Theta  
+### Randolph College Men’s Lacrosse  
+**Goalie (ODAC Conference)**  
+*2021–2022*  
+- Ranked 2nd in conference for saves; led defense with no prior lacrosse background
 
+---
 
+## Awards and Honors
+
+- *Student of the Year*, Randolph College  
+- *Fulbright-Hays Scholarship*, US Department of State  
+- *Carl Stern Award*, Excellence in Economics  
+- *Marylin S. Murray Award*, Asian Studies  
+- *Lura Lee Cannon Stephens ’11 Prize*, History  
+- *Outstanding Gold Key Guide*, Randolph Admissions  
+- *Aaron Shacklette Team Spirit Award*, Men’s Lacrosse  
+- Member: Phi Beta Kappa · Omicron Delta Kappa · Omicron Delta Epsilon · Phi Alpha Theta
 
 
 
