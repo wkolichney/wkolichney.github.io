@@ -136,6 +136,7 @@ https://github.com/wkolichney/Bearing.AI-Project
 
 https://www.linkedin.com/posts/william-olichney_environmental-economics-ai-and-the-eus-activity-7321311245523902466-dfYF?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAABvgDzMB3LfwALO-4s89zSe35QDoUi53b7U
 
+
 *Spring 2025*
 - Built a neural network to predict carbon emissions for maritime shipping voyages
 - Earned an award for communicating our insights to a technical and nontechnical audience
