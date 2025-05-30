@@ -127,15 +127,21 @@ NLP & Topic Modeling (Hugging Face Transformers)
 Data Visualization & Dashboards (Streamlit)
 Exploratory Data Analysis & Insight Generation
 
-### Bearing AI
+### Bearing AI: Team 16's
+
+![image](https://github.com/user-attachments/assets/64c99443-8820-4d70-9de6-49040d6dc47b)
+
+
 https://github.com/wkolichney/Bearing.AI-Project
-<br>
+<be>
+
 https://www.linkedin.com/posts/william-olichney_environmental-economics-ai-and-the-eus-activity-7321311245523902466-dfYF?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAABvgDzMB3LfwALO-4s89zSe35QDoUi53b7U
-<br>
+<be>
+
 *Spring 2025*
 - Built a neural network to predict carbon emissions for maritime shipping voyages
-- Earned award for communicating our insights to a technical and nontechnical audience
-- 
+- Earned an award for communicating our insights to a technical and nontechnical audience
+- Situated the importance of this model in the context of environmental economic theory for the EU's carbon credit system
 
 
 ### Don’t Skip Satisfaction  
