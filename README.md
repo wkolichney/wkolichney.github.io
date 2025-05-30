@@ -1,8 +1,3 @@
-<p align="center">
-  <img src="https://github.com/wkolichney/wkolichney.github.io/blob/my_pages/assets/img/headshot.jpg?raw=true" alt="William Olichney Headshot" width="150"/>
-</p>
-
-
 # William K. Olichney  
 wkolichney@wm.edu ·  [LinkedIn](https://www.linkedin.com/in/william-olichney)
 
