@@ -49,7 +49,6 @@ model = pickle.load(io.BytesIO(response.content))
 
 genres = sorted(df['genre'].dropna().unique().tolist())
 reason_start_options = sorted(df['reason_start'].dropna().unique().tolist())
-reason_end_options = sorted(df['reason_end'].dropna().unique().tolist())
 shuffle_options = [False, True]
 incognito_options = [False, True]
 time_options = sorted(df['time_of_day'].dropna().unique().tolist())
