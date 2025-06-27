@@ -102,7 +102,7 @@ if st.button("Predict"):
 st.markdown("""
 #### What are Log-Odds Coefficients?
 
-The best part about logistic regression when compared to other machine learning models, is that it's easier to interpret what features contribute to a skiped song.
+The best part about logistic regression, when compared to other machine learning models, is that it's easier to interpret what features contribute to a skipped song.
 
 - **Positive values** (e.g., +1.5) mean the feature **increases** the likelihood of a skip.
 - **Negative values** (e.g., -2.0) mean the feature **reduces** the likelihood of a skip.
