@@ -19,7 +19,7 @@ Using real Spotify listening data from a friend, I trained a machine learning mo
 - The genre of the song
 - The time of day
 
-These inputs are converted into one-hot encoded variables and passed to a logistic regression model trained with scikit-learn. The model returns whether a skip is likely, as well as the probability of skipping.
+These inputs are converted into one-hot encoded variables and passed to a logistic regression model trained with scikit-learn. The model returns whether a skip is likely, as a simple "Yes" or "No".
 
 ### Tech Stack
 - **Python & pandas** for data wrangling
