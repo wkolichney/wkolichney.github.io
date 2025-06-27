@@ -108,15 +108,19 @@ If we made the different genres, times of day, reasons for starting a song, etc.
 We let the model see the answer sometimes, called training data. That helps the model build the coefficients. 
 Then we see if those coefficients were pretty accurate in cases the model hasn't seen before, called test data. It's not right all the time, no model is. 
 
+#### How to Easily Interpret Log-Odds?
+- **Positive values** (e.g., +1.5) mean the feature **increases** the likelihood of a skip. A positive number would lean the equation closer to "1" or "skip"
+- **Negative values** (e.g., -2.0) mean the feature **reduces** the likelihood of a skip. A negative number would lean the equation closer to "0" or "not skipped"
+- **Values close to 0** (e.g., 0.1 or -0.1) have **little or no effect** on the prediction. It doesn't drive the equation to 1 or 0.
+
+As we can see in Brian's data, him skipping the previous song, or "reason_start_fwdbtn", usually means he will skip the song in question (this has a 0.8 coefficient). Meanwhile, if the genre is Alt-country, he'll probably listen to the song (-4.13 coefficient).
+
+
+
 #### Is the model any good?
 - **Overall accuracy:** 77%
 - **Precision (skip = 1):** 74% — When the model predicts a skip, it's right 74% of the time.
 - **Recall (skip = 1):** 70% — Of all the actual skips, the model catches 70% of them.
 - **F1-Score (skip = 1):** 72% — A balance between precision and recall.
 
-- **Positive values** (e.g., +1.5) mean the feature **increases** the likelihood of a skip. A positive number would lean the equation closer to "1" or "skip"
-- **Negative values** (e.g., -2.0) mean the feature **reduces** the likelihood of a skip. A negative number would lean the equation closer to "0" or "not skipped"
-- **Values close to 0** (e.g., 0.1 or -0.1) have **little or no effect** on the prediction. It doesn't drive the equation to 1 or 0.
-
-As we can see in Brian's data, him skipping the previous song, or "reason_start_fwdbtn", usually means he will skip the song in question (this has a 0.8 coefficient). Meanwhile, if the genre is Alt-country, he'll probably listen to the song (-4.13 coefficient).
 """)
