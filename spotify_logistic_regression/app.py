@@ -88,3 +88,12 @@ if st.button("Predict"):
 
     # 6. Display result
     st.markdown(f"### Will the song be skipped? **{'⏭️Yes!' if pred == 1 else '🎶No!'}**")
+    
+    # 7. Optional: Show feature importances
+    with st.expander("🔍 See What the Model Prioritizes (Log-Odds Coefficients)"):
+        coef_df = pd.DataFrame({
+            "Feature": model.feature_names_in_,
+            "Log-Odds Coefficient": model.coef_[0]
+        }).sort_values(by="Log-Odds Coefficient", ascending=False)
+
+        st.dataframe(coef_df)
