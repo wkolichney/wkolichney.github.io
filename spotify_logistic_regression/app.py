@@ -13,7 +13,7 @@ This app uses a **logistic regression model** to predict whether a listener will
 
 ### How It Works
 Using real Spotify listening data from a friend, I trained a machine learning model on features like:
-- The reason the song started started: Did the user open the app? Did they skip the previous song? Did replay? Did the select it....
+- The reason the song started started: Did the user open the app? Did they skip the previous song? Did they replay it? Did they select it?
 - Whether shuffle was on
 - If the user was in incognito mode
 - The genre of the song
