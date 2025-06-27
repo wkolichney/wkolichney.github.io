@@ -88,7 +88,7 @@ if st.button("Predict"):
 
     # 6. Display result
     st.markdown(f"### Will the song be skipped? **{'⏭️Yes!' if pred == 1 else '🎶No!'}**")
-    
+
     # 7. Optional: Show feature importances
     with st.expander("🔍 See What the Model Prioritizes (Log-Odds Coefficients)"):
         coef_df = pd.DataFrame({
@@ -97,3 +97,16 @@ if st.button("Predict"):
         }).sort_values(by="Log-Odds Coefficient", ascending=False)
 
         st.dataframe(coef_df)
+
+
+st.markdown("""
+#### What are Log-Odds Coefficients?
+
+The best part about logistic regression when compared to other machine learning models, is that it's easier to interpret what features contribute to a skiped song.
+
+- **Positive values** (e.g., +1.5) mean the feature **increases** the likelihood of a skip.
+- **Negative values** (e.g., -2.0) mean the feature **reduces** the likelihood of a skip.
+- **Values close to 0** (e.g., 0.1 or -0.1) have **little or no effect** on the prediction.
+
+As we can see in Brian's data, him skipping the previous song, or "reason_start_fwdbtn", usually means he will skip the song in question. Meanwhile, if the genre is Alt-country, he'll probably listen to the song.
+""")
