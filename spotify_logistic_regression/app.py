@@ -103,9 +103,13 @@ st.markdown("""
 #### What are Log-Odds Coefficients?
 
 The best part about logistic regression, when compared to other machine learning models, is that it's easier to interpret what features contribute to a skipped song.
+
 We use Log-Odds coefficients. When training a logistic regression, what we are doing is creating an equation that uses our predictors (genre/time of day...) to solve for the song being skipped or not.
+
 If we made the different genres, times of day, reasons for starting a song, etc., into variables of an equation, then the log-odds will tilt those variables to make the equation predict a skipped or a listened song. 
+
 We let the model see the answer sometimes, called training data. That helps the model build the coefficients. 
+
 Then we see if those coefficients were pretty accurate in cases the model hasn't seen before, called test data. It's not right all the time, no model is. 
 
 #### How to Easily Interpret Log-Odds?
