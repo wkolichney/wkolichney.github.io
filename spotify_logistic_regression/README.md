@@ -8,6 +8,6 @@ This model is trained and only runs on my friend Brian's Spotify data.
 
 ## File Structure
 
-**app.py** - a python file that loads the listening data, logistic regression model, and runs the streamlit dashboard
+**app.py** - a Python file that loads the listening data, logistic regression model, and runs the streamlit dashboard
 
-**requirements.txt** a text file of the package(s) that are necessary to run the streamlit dashboard
+**requirements.txt** - a text file of the package(s) that are necessary to run the streamlit dashboard
