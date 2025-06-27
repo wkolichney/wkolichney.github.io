@@ -103,10 +103,12 @@ st.markdown("""
 #### What are Log-Odds Coefficients?
 
 The best part about logistic regression, when compared to other machine learning models, is that it's easier to interpret what features contribute to a skipped song.
+We use Log-Odds coefficients. When training a logistic regression, what we are doing is creating an equation that uses our predictors (genre/time of day...) to solve for the song being skipped or not. 
 
-- **Positive values** (e.g., +1.5) mean the feature **increases** the likelihood of a skip.
-- **Negative values** (e.g., -2.0) mean the feature **reduces** the likelihood of a skip.
-- **Values close to 0** (e.g., 0.1 or -0.1) have **little or no effect** on the prediction.
 
-As we can see in Brian's data, him skipping the previous song, or "reason_start_fwdbtn", usually means he will skip the song in question. Meanwhile, if the genre is Alt-country, he'll probably listen to the song.
+- **Positive values** (e.g., +1.5) mean the feature **increases** the likelihood of a skip. A positive number would lean the equation closer to "1" or "skip"
+- **Negative values** (e.g., -2.0) mean the feature **reduces** the likelihood of a skip. A negative number would lean the equation closer to "0" or "not skipped"
+- **Values close to 0** (e.g., 0.1 or -0.1) have **little or no effect** on the prediction. It doesn't drive the equation to 1 or 0.
+
+As we can see in Brian's data, him skipping the previous song, or "reason_start_fwdbtn", usually means he will skip the song in question (this has a 0.8 coefficient). Meanwhile, if the genre is Alt-country, he'll probably listen to the song (-4.13 coefficient).
 """)
