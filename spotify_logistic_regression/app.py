@@ -88,4 +88,4 @@ if st.button("Predict"):
     pred = model.predict(user_encoded)[0]
 
     # 6. Display result
-    st.markdown(f"### Will the song be skipped? **{'Yes' if pred == 1 else 'No'}!**")
+    st.markdown(f"### Will the song be skipped? **{'⏭️Yes!' if pred == 1 else '🎶No!'}**")
