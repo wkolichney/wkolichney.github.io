@@ -145,6 +145,7 @@ https://www.linkedin.com/posts/william-olichney_environmental-economics-ai-and-t
 
 ### Don’t Skip Satisfaction  
 *Fall 2024*  
+https://wkolichneyappio-3x6bizbeg3vtisoytrfktm.streamlit.app/
 - Built ML model to predict Spotify user skip behavior based on listening context  
 - Recommended personalized push notifications and new Wrapped features
 
