@@ -34,7 +34,7 @@ Transformed millions of customer complaints into structured data using NLP. Buil
 ### 🚢 [Bearing AI Project](https://github.com/wkolichney/Bearing.AI-Project)  
 [LinkedIn Post](https://www.linkedin.com/posts/william-olichney_environmental-economics-ai-and-the-eus-activity-7321311245523902466-dfYF)  
 *Spring 2025*  
-Trained a neural network to predict carbon emissions in maritime shipping. Framed results in context of EU carbon trading policies. Won award for communicating to both technical and nontechnical audiences.
+Trained a neural network to predict carbon emissions in maritime shipping. Framed results in the context of EU carbon trading policies. Won an award for communicating to both technical and nontechnical audiences.
 
 ---
 
@@ -72,13 +72,18 @@ Built a stochastic revenue model in R using Google Trends + market data. Predict
 ## 🏅 Awards
 
 - *Student of the Year*, Randolph College  
-- *Fulbright-Hays Scholar*, U.S. Department of State  
-- *Honorable Mention*, W&M Capstone (Top 5 out of 30+ teams)  
+- *Fulbright-Hays Scholar*, U.S. Department of State
+- *Most Creative Approach* Don't Skip Satisfaction
+- *Honorable Mention*, W&M Capstone (Top 5 out of 30+ teams)
+- *Carl Stern Award for Excellence in Economics*, Randolph College
+- *Lura Lee Cannon Stephens ’11 Prize in History*, Randolph College
+- *Marilyn S. Murray Asian Studies Award*, Randolph College
+- *Outstanding Gold Key Guides*, Randolph College
 - Member: Phi Beta Kappa · Omicron Delta Kappa · Omicron Delta Epsilon · Phi Alpha Theta
 
 ---
 
-Thanks for stopping by! If you’re working on something related to international data, environmental modeling, or AI applications — I’d love to connect.
+Thanks for stopping by! If you’re working on something related to international data, environmental modeling, or AI applications, I’d love to connect.
 
 
 
