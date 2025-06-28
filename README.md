@@ -5,7 +5,7 @@
 
 ## 👋 About Me
 
-I'm a Master of Science in Business Analytics student at William & Mary with a background in economics, history, and Mandarin. I enjoy building machine learning models and using data to solve problems in international development, carbon finance, and customer behavior.
+I'm a Master of Science in Business Analytics graduate from William & Mary and have a background in economics, history, and Mandarin. I enjoy building machine learning models and using data to solve problems in international development, carbon finance, and customer behavior. I currently work in analyzing Chinese loan performance in developing countries.
 
 ---
 
