@@ -38,11 +38,9 @@ Trained a neural network to predict carbon emissions in maritime shipping. Frame
 
 ---
 
-### 🐔 Medium Rare Chicken  
-
-https://github.com/wkolichney/wkolichney.github.io/blob/9a17e2f5358369c6e51b95581b3da5cd3915cda0/database_management/Team%2013%20DBM%20Project.pdf
-
-Analyzed CDC salmonella outbreak data by strain and venue. Proposed improvements to foodborne illness reporting.
+### 🐔 [Medium Rare Chicken](https://github.com/wkolichney/wkolichney.github.io/blob/9a17e2f5358369c6e51b95581b3da5cd3915cda0/database_management/Team%2013%20DBM%20Project.pdf)  
+*Fall 2024*  
+Analyzed CDC salmonella outbreak data by strain and venue. Proposed improvements to foodborne illness reporting systems and database design. Linked relational schema design with public health reporting use cases.
 
 ### ☕ Starbucks Revenue Forecast  
 Built a stochastic revenue model in R using Google Trends + market data. Predicted quarterly revenue within $0.5M.
