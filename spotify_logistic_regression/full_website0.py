@@ -22,9 +22,16 @@ import spotipy
 from spotipy.oauth2 import SpotifyClientCredentials
 import pickle
 import os
+from supabase import create_client, Client
+################################################################################################################################
+# Store data from the API Calls
 
 
+SUPABASE_URL = st.secrets["SUPABASE_URL"]
+SUPABASE_KEY = st.secrets["SUPABASE_KEY"]
+supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
 
+#########################################################################################################3
 st.title("Upload Your Spotify JSON Files")
 
 # Upload multiple JSON files
@@ -289,6 +296,10 @@ def get_genres_for_unique_artists(music_df, access_token, progress_file="genre_p
             continue
 
         new_genres.append({'artist': artist, 'genre': genre})
+        try:
+            supabase.table("artist_genres").insert({"artist": artist, "genre": genre}).execute()
+        except Exception as e:
+            st.warning(f"Supabase insert failed for {artist}: {e}")
         status_text.info(f"🎵 {idx + 1}/{len(remaining)}: {artist} → {genre}")
         progress_bar.progress((idx + 1) / len(remaining))
 
