@@ -209,7 +209,7 @@ def get_artist_genre_from_track_uri(track_uri, access_token, max_retries=3):
                         return genres[0] if genres else 'unknown'
                     elif artist_response.status_code == 429:
                         retry_after = min(int(artist_response.headers.get("Retry-After", 1)), 60)
-                        print(f"Rate limited on artist request. Waiting {retry_after}s...")
+                        st.warning(f"Rate limited on artist request. Waiting {retry_after}s...")
                         time.sleep(retry_after)
                         continue
 
