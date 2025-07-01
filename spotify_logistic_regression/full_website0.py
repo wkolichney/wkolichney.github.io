@@ -55,7 +55,7 @@ st.markdown("---")
 st.header("Spotify Developer Credentials")
 client_id = st.text_input("Client ID")
 client_secret = st.text_input("Client Secret", type="password")
-redirect_uri = "http://localhost:8888/callback"
+redirect_uri = "https://wkolichneyappio-spotify-machine-learning.streamlit.app/"
 scope = "user-library-read user-top-read"
 
 # STEP 1: Generate Authorization URL
