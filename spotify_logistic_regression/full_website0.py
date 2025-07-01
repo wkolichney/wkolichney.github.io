@@ -143,15 +143,11 @@ if df is not None and not df.empty:
     # STEP 3: Prepare distinct artist list
     distinct_artist_try = music_ts.drop_duplicates(subset=['artist'], keep='first')[['artist', 'spotify_track_uri']].sort_values('artist')
 
-    # STEP 4: Prepare distinct track list
-    more_than_genres_api = music_ts.drop_duplicates(subset=['track'], keep='first')[['track', 'artist', 'spotify_track_uri']]
 
     st.markdown("### ✅ Processed Artist & Track Tables")
     st.write("Distinct Artists")
     st.dataframe(distinct_artist_try.head())
 
-    st.write("Distinct Tracks")
-    st.dataframe(more_than_genres_api.head())
 
     # Optional: Save to session state if needed later
     st.session_state['music_ts'] = music_ts
