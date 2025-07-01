@@ -11,6 +11,8 @@ import json
 import requests
 import base64
 import urllib.parse
+import pytz
+
 
 st.title("Upload Your Spotify JSON Files")
 
@@ -89,7 +91,68 @@ if client_id and client_secret:
         if response.status_code == 200:
             token_info = response.json()
             access_token = token_info.get("access_token")
-            st.success("Access token obtained successfully!")
+            st.session_state['access_token'] = access_token
+            st.success("Access token obtained and saved!")
             st.code(access_token)
+
         else:
             st.error(f"Failed to get access token: {response.status_code} - {response.text}")
+
+
+#############################################################################################################################
+'''
+That's pretty much is user side. Now, I need to cleanup their json data, remove personal information, make api call, 
+store genre data in SQL or...something
+
+
+'''
+
+# Ask the user for their timezone
+st.markdown("---")
+st.subheader("Choose Your Timezone")
+timezone_options = pytz.all_timezones
+user_timezone = st.selectbox("What region do you live in? (Used to convert timestamps)", options=timezone_options, index=timezone_options.index("America/New_York"))
+
+if df is not None and not df.empty:
+    # STEP 1: Select and rename relevant columns
+    music = df[['ts', 'ms_played', 'master_metadata_track_name', 
+                'master_metadata_album_artist_name', 'master_metadata_album_album_name',
+                'reason_start', 'reason_end', 'shuffle', 'skipped', 'offline', 
+                'spotify_track_uri']].copy()
+
+    music = music.rename(columns={
+        'master_metadata_track_name': 'track',
+        'master_metadata_album_artist_name': 'artist',
+        'master_metadata_album_album_name': 'album'
+    })
+
+    # STEP 2: Convert timestamps to selected timezone
+    def convert_to_user_timezone(df, tz_str):
+        df = df.copy()
+        df['ts'] = pd.to_datetime(df['ts'])
+        if df['ts'].dt.tz is None:
+            df['ts'] = df['ts'].dt.tz_localize('UTC').dt.tz_convert(tz_str)
+        else:
+            df['ts'] = df['ts'].dt.tz_convert(tz_str)
+        return df
+
+    music_ts = convert_to_user_timezone(music, user_timezone)
+    st.success(f"Timestamps converted to: `{user_timezone}`")
+    st.dataframe(music_ts.head())
+
+    # STEP 3: Prepare distinct artist list
+    distinct_artist_try = music_ts.drop_duplicates(subset=['artist'], keep='first')[['artist', 'spotify_track_uri']].sort_values('artist')
+
+    # STEP 4: Prepare distinct track list
+    more_than_genres_api = music_ts.drop_duplicates(subset=['track'], keep='first')[['track', 'artist', 'spotify_track_uri']]
+
+    st.markdown("### ✅ Processed Artist & Track Tables")
+    st.write("Distinct Artists")
+    st.dataframe(distinct_artist_try.head())
+
+    st.write("Distinct Tracks")
+    st.dataframe(more_than_genres_api.head())
+
+    # Optional: Save to session state if needed later
+    st.session_state['music_ts'] = music_ts
+    st.session_state['distinct_artists'] = distinct_artist_try
