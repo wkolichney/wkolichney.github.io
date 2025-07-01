@@ -21,7 +21,6 @@ from sklearn.preprocessing import LabelEncoder
 import spotipy
 from spotipy.oauth2 import SpotifyClientCredentials
 import pickle
-import tensorflow as tf
 import os
 
 
