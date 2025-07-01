@@ -118,12 +118,7 @@ if client_id and client_secret:
 
 
 #############################################################################################################################
-'''
-That's pretty much is user side. Now, I need to cleanup their json data, remove personal information, make api call, 
-store genre data in SQL or...something
 
-
-'''
 
 # Ask the user for their timezone
 st.markdown("---")
@@ -175,10 +170,7 @@ if 'raw_data' in st.session_state and not st.session_state['raw_data'].empty:
 
 
 ########################################################################################################################################################
-'''
-API call time babey
 
-'''
 
 
 def get_artist_genre_from_track_uri(track_uri, access_token, max_retries=3):
@@ -278,6 +270,10 @@ def get_genres_for_unique_artists(music_df, access_token, progress_file="genre_p
     print(f"Need to process {len(remaining)} new artists")
 
     new_genres = []
+    rate_limited_count = 0
+
+    progress_bar = st.progress(0)
+    status_text = st.empty()
 
     for idx, row in remaining.iterrows():
         artist = row['artist']
@@ -286,32 +282,38 @@ def get_genres_for_unique_artists(music_df, access_token, progress_file="genre_p
         genre = get_artist_genre_from_track_uri(track_uri, access_token)
 
         if genre == 'rate_limited':
-            print(f"Rate limited: {artist} — will retry later")
+            rate_limited_count += 1
+            status_text.warning(f"⚠️ Rate limited: {artist} — retrying later")
             with open("rate_limited_artists.pkl", "ab") as f:
                 pickle.dump({'artist': artist, 'spotify_track_uri': track_uri}, f)
             continue
 
         new_genres.append({'artist': artist, 'genre': genre})
-        print(f"Processed {len(new_genres)}/{len(remaining)}: {artist} -> {genre}")
+        status_text.info(f"🎵 {idx + 1}/{len(remaining)}: {artist} → {genre}")
+        progress_bar.progress((idx + 1) / len(remaining))
 
-        # Save progress every 25
         if len(new_genres) > 0 and len(new_genres) % 25 == 0:
             temp_df = pd.concat([existing_genres, pd.DataFrame(new_genres)], ignore_index=True)
             with open(progress_file, 'wb') as f:
                 pickle.dump(temp_df, f)
-            print(f"Progress saved: {len(temp_df)} total artists processed")
+            st.info(f"✅ Progress saved: {len(temp_df)} total artists processed")
 
         time.sleep(0.1)
+
+    progress_bar.empty()
+    status_text.success(f"🎉 Done! Genres fetched for {len(new_genres)} artists.")
+    if rate_limited_count > 0:
+        st.warning(f"⚠️ {rate_limited_count} artists were rate limited and saved for retry.")
 
     # Final save
     if new_genres:
         all_genres = pd.concat([existing_genres, pd.DataFrame(new_genres)], ignore_index=True)
         with open(progress_file, 'wb') as f:
             pickle.dump(all_genres, f)
-        print(f"Final results saved: {len(all_genres)} artists with genres")
+        st.write(f"Final results saved: {len(all_genres)} artists with genres")
     else:
         all_genres = existing_genres
-        print("No new artists successfully processed.")
+        st.write("No new artists successfully processed.")
 
     return all_genres
 
