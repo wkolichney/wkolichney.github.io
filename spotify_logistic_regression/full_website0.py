@@ -30,6 +30,12 @@ from supabase import create_client, Client
 SUPABASE_URL = st.secrets["SUPABASE_URL"]
 SUPABASE_KEY = st.secrets["SUPABASE_KEY"]
 supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
+##################################################################################################################################
+# youtube instructional video
+st.header("📽️ How to Use This Site")
+st.markdown("Watch this short video to learn how to upload your Spotify data and run the model:")
+
+st.video('https://www.youtube.com/watch?v=4XgMMRgV6OU')
 
 #########################################################################################################3
 st.title("Upload Your Spotify JSON Files")
