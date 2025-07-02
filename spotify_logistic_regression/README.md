@@ -6,4 +6,4 @@ This is a machine learning model that predicts whether a spotify user will skip 
 
 
 
-https://wkolichneyappio-spotify-machine-learning.streamlit.app/
+https://wkolichneyapp-spotify-machine-learning.streamlit.app/
