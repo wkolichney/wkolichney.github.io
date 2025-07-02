@@ -301,7 +301,8 @@ def get_genres_for_unique_artists(music_df, access_token, progress_file="genre_p
         except Exception as e:
             st.warning(f"Supabase insert failed for {artist}: {e}")
         status_text.info(f"🎵 {idx + 1}/{len(remaining)}: {artist} → {genre}")
-        progress_bar.progress((idx + 1) / len(remaining))
+        progress_bar.progress(min((idx + 1) / len(remaining), 1.0))
+
 
         if len(new_genres) > 0 and len(new_genres) % 25 == 0:
             temp_df = pd.concat([existing_genres, pd.DataFrame(new_genres)], ignore_index=True)
