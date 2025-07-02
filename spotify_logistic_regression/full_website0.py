@@ -33,9 +33,11 @@ supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
 ##################################################################################################################################
 # youtube instructional video
 st.header("📽️ How to Use This Site")
-st.markdown("Watch this short video to learn how to upload your Spotify data and run the model:")
+st.markdown("""
+Watch this short video tutorial on how to upload your Spotify data and use the app:
 
-st.video('https://www.youtube.com/watch?v=4XgMMRgV6OU')
+👉 [Watch the video on YouTube](https://www.youtube.com/watch?v=4XgMMRgV6OU)
+""")
 
 #########################################################################################################3
 st.title("Upload Your Spotify JSON Files")
