@@ -32,19 +32,27 @@ SUPABASE_KEY = st.secrets["SUPABASE_KEY"]
 supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
 ##################################################################################################################################
 # youtube instructional video
-st.header("📽️ How to Use This Site")
+st.header("How to Use This Site")
 st.markdown("""
 Watch this short video tutorial on how to upload your Spotify data and use the app:
 
-👉 [Watch the video on YouTube](https://www.youtube.com/watch?v=4XgMMRgV6OU)
+[Watch the video on YouTube](https://www.youtube.com/watch?v=4XgMMRgV6OU)
 """)
 
 #########################################################################################################3
 st.title("Upload Your Spotify JSON Files")
 
+st.markdown("""
+Click this link to request your listening data from Spotify:
+
+(https://www.spotify.com/account/privacy/)
+""")
+
+
+
 # Upload multiple JSON files
 uploaded_files = st.file_uploader(
-    "Choose one or more Spotify JSON files", 
+    "For now, due to rate limiting on pulling genre data, only input two of of your most recent listening data .json files. Typically named something like 'Streaming_History_2024_11'",
     type="json", 
     accept_multiple_files=True
 )
@@ -88,14 +96,43 @@ if uploaded_files:
 # SECTION 2: Spotify Developer Credentials
 st.markdown("---")
 st.header("Spotify Developer Credentials")
+
+
+st.markdown("""
+In order to get the genre for your songs, we will need to get you a Spotify API key.
+            
+### Step 1: Connect your Spotify account to web developer access
+            - Go to [Spotify Developer](https://developer.spotify.com/)
+            - Enter your Spotify log in information
+### Step 2: Create app, which generates API key
+            - Go to [Spotify Dashboard](https://developer.spotify.com/dashboard)
+            - Select "Create app"
+            - Fill out required fields. The only thing that is important to fill specifically is the "Redirect URI". Simply copy and paste this website's URL into the space (https://wkolichneyapp-spotify-machine-learning.streamlit.app/)
+            - Hit save!
+### Step 3: Get your Client ID and Client Secret keys
+            - Copy the "Client ID" and "Client Secret" fields from the app you just created. Navigate to "Basic Information", and copy the "Client ID". To access your secret ID, click "View client secret", just under your Client ID. 
+            - Paste that log in information into the respective fields below. 
+            - Hit your enter key on your computer.
+            
+""")
+
+
 client_id = st.text_input("Client ID")
 client_secret = st.text_input("Client Secret", type="password")
-redirect_uri = "https://wkolichneyappio-spotify-machine-learning.streamlit.app/"
+redirect_uri = "https://wkolichneyapp-spotify-machine-learning.streamlit.app/"
 scope = "user-library-read user-top-read"
 
-# STEP 1: Generate Authorization URL
+# STEP 4: Generate Authorization URL
 if client_id and client_secret:
-    st.markdown("### Step 1: Authorize Application")
+    st.markdown("""
+    ### Step 4: Authorize Application: 
+    - Click on the link below. This will open my website again, but in the address bar, you will see your token. It will look like... 
+    - https: //wkolichneyapp-spotify-machine-learning.streamlit.app/?code=AQCWgfh80w...
+    - Copy everything AFTER code=  (do not include "code" or the equal sign, just the full text to the right of them)
+    - That will be your token used to collect genre data 
+    - Paste that token into the code field below and hit enter.
+                """)
+
     auth_url = (
         f"https://accounts.spotify.com/authorize"
         f"?client_id={client_id}"
@@ -108,7 +145,8 @@ if client_id and client_secret:
 
     # STEP 3: Exchange Code for Access Token
     if auth_code:
-        st.markdown("### Step 3: Get Access Token")
+        st.markdown("### Step 5: Get Access Token: \
+        -Nothing more needs to be done on your end! Thanks for sticking with the processs! If you see the token, then afterwars see an error message, do not worry. That token will stay active for ~1 hour.")
         token_url = "https://accounts.spotify.com/api/token"
         headers = {
             "Authorization": "Basic " + base64.b64encode(f"{client_id}:{client_secret}".encode()).decode(),
@@ -173,7 +211,7 @@ if 'raw_data' in st.session_state and not st.session_state['raw_data'].empty:
     distinct_artist_try = music_ts.drop_duplicates(subset=['artist'], keep='first')[['artist', 'spotify_track_uri']].sort_values('artist')
 
 
-    st.markdown("### ✅ Processed Artist Data")
+    st.markdown("### Processed Artist Data")
     st.write("Distinct Artists")
     st.dataframe(distinct_artist_try.head())
 
@@ -317,7 +355,7 @@ def get_genres_for_unique_artists(music_df, access_token, progress_file="genre_p
 
         if genre == 'rate_limited':
             rate_limited_count += 1
-            status_text.warning(f"⚠️ Rate limited: {artist} — retrying later")
+            status_text.warning(f"Rate limited: {artist} — retrying later")
             with open("rate_limited_artists.pkl", "ab") as f:
                 pickle.dump({'artist': artist, 'spotify_track_uri': track_uri}, f)
             continue
@@ -362,7 +400,11 @@ def get_genres_for_unique_artists(music_df, access_token, progress_file="genre_p
 
 st.markdown("---")
 st.subheader("Get Spotify Genres for Artists")
-
+st.markdown("""
+### Genre Collection:
+- The only data this website will collect and house is your artist and corresponding genre, but nothing else. This will build a database to decrease the amount of API calls needed for future users.
+- So, the stored data will only look like 'Pixies - Alt Rock' - no information about you
+            """)
 if 'access_token' in st.session_state and 'distinct_artists' in st.session_state:
     if st.button("🎧 Get Genres and Join with Music Data"):
         with st.spinner("Calling Spotify API and merging..."):
@@ -408,7 +450,7 @@ if 'access_token' in st.session_state and 'distinct_artists' in st.session_state
 
             # STEP 6: Save to session + show
             st.session_state['final_data'] = final_data
-            st.success("🎉 Genres joined successfully!")
+            st.success("Genres joined successfully!")
             st.dataframe(final_data.head())
 
 ####################################################################################################################################################
@@ -440,14 +482,12 @@ if 'final_data' in st.session_state:
 
     # ---- Save & Show ----
     st.session_state['final_data'] = final_data
-    st.success("✅ Feature engineering complete!")
+    st.success("Feature engineering complete!")
     st.dataframe(final_data.head())
 
 
 ###################################################################################################################################################
-'''
-Model TIME
-'''
+
 
 if 'final_data' in st.session_state:
     final_data = st.session_state['final_data'].copy()
@@ -527,6 +567,4 @@ if 'X_raw' in st.session_state and 'model' in st.session_state:
         pred = model.predict(user_encoded)[0]
         st.markdown(f"### Will this song be skipped? **{'⏭️ Yes!' if pred == 1 else '🎶 No!'}**")
 
-        with st.expander("🔍 Log-Odds Coefficients"):
-            st.dataframe(st.session_state['coef_df'])
-
+        
