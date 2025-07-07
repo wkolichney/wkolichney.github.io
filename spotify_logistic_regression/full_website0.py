@@ -102,17 +102,17 @@ st.markdown("""
 In order to get the genre for your songs, we will need to get you a Spotify API key.
             
 ### Step 1: Connect your Spotify account to web developer access
-            - Go to [Spotify Developer](https://developer.spotify.com/)
-            - Enter your Spotify log in information
+- Go to [Spotify Developer](https://developer.spotify.com/)
+- Enter your Spotify log in information
 ### Step 2: Create app, which generates API key
-            - Go to [Spotify Dashboard](https://developer.spotify.com/dashboard)
-            - Select "Create app"
-            - Fill out required fields. The only thing that is important to fill specifically is the "Redirect URI". Simply copy and paste this website's URL into the space (https://wkolichneyapp-spotify-machine-learning.streamlit.app/)
-            - Hit save!
+- Go to [Spotify Dashboard](https://developer.spotify.com/dashboard)
+- Select "Create app"
+- Fill out required fields. The only thing that is important to fill specifically is the "Redirect URI". Simply copy and paste this website's URL into the space (https://wkolichneyapp-spotify-machine-learning.streamlit.app/)
+- Hit save!
 ### Step 3: Get your Client ID and Client Secret keys
-            - Copy the "Client ID" and "Client Secret" fields from the app you just created. Navigate to "Basic Information", and copy the "Client ID". To access your secret ID, click "View client secret", just under your Client ID. 
-            - Paste that log in information into the respective fields below. 
-            - Hit your enter key on your computer.
+- Copy the "Client ID" and "Client Secret" fields from the app you just created. Navigate to "Basic Information", and copy the "Client ID". To access your secret ID, click "View client secret", just under your Client ID. 
+- Paste that log in information into the respective fields below. 
+- Hit your enter key on your computer.
             
 """)
 
@@ -143,10 +143,12 @@ if client_id and client_secret:
     st.markdown(f"[Click here to authorize Spotify access]({auth_url})")
     auth_code = st.text_input("Step 2: Paste the 'code' from the URL after authorization")
 
-    # STEP 3: Exchange Code for Access Token
+    # STEP 5: Exchange Code for Access Token
     if auth_code:
-        st.markdown("### Step 5: Get Access Token: \
-        -Nothing more needs to be done on your end! Thanks for sticking with the processs! If you see the token, then afterwars see an error message, do not worry. That token will stay active for ~1 hour.")
+        st.markdown("""
+        ### Step 5: Get Access Token: 
+        Nothing more needs to be done on your end! Thanks for sticking with the processs! If you see the token, then afterwars see an error message, do not worry. That token will stay active for ~1 hour.
+                    """)
         token_url = "https://accounts.spotify.com/api/token"
         headers = {
             "Authorization": "Basic " + base64.b64encode(f"{client_id}:{client_secret}".encode()).decode(),
@@ -568,3 +570,58 @@ if 'X_raw' in st.session_state and 'model' in st.session_state:
         st.markdown(f"### Will this song be skipped? **{'⏭️ Yes!' if pred == 1 else '🎶 No!'}**")
 
         
+####################################################################################################################################################
+
+
+def format_prompt_from_coef(coef_df):
+    top = coef_df.sort_values(by="Log-Odds Coefficient", ascending=False).head(3)
+    bottom = coef_df.sort_values(by="Log-Odds Coefficient", ascending=True).head(3)
+
+    return f"""
+You are the witty narrator of Spotify Wrapped.
+
+Based on logistic regression coefficients predicting whether a user will skip a song, write a fun and playful summary of their listening behavior. Be a little sarcastic, keep it short (2-4 sentences), and focus on the features below.
+
+Top predictors of skipping:
+{top.to_string(index=False)}
+
+Top predictors of not skipping:
+{bottom.to_string(index=False)}
+
+Avoid any technical language. Just make it sound like a chill DJ connecting with their audience.
+"""
+
+
+
+def call_huggingface_inference(prompt):
+    HF_API_URL = "https://api-inference.huggingface.co/models/mistralai/Mistral-7B-Instruct-v0.1"
+    headers = {
+        "Authorization": f"Bearer {st.secrets['HF_API_KEY']}",
+        "Content-Type": "application/json"
+    }
+    payload = {
+        "inputs": prompt,
+        "parameters": {
+            "max_new_tokens": 250,
+            "temperature": 0.9,
+            "return_full_text": False
+        }
+    }
+
+    response = requests.post(HF_API_URL, headers=headers, json=payload)
+
+    if response.status_code == 200:
+        return response.json()[0]["generated_text"]
+    else:
+        st.error(f"Hugging Face API Error: {response.status_code} - {response.text}")
+        return None
+    
+
+if 'coef_df' in st.session_state:
+    if st.button("🎁 Generate Spotify-Wrapped Commentary"):
+        prompt = format_prompt_from_coef(st.session_state['coef_df'])
+        with st.spinner("Generating Spotify Wrapped-style summary..."):
+            wrapped_text = call_huggingface_inference(prompt)
+        if wrapped_text:
+            st.markdown("### 📊 Spotify-Wrapped Style Commentary")
+            st.success(wrapped_text)
