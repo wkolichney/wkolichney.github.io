@@ -308,9 +308,6 @@ def get_genres_for_unique_artists(music_df, access_token):
     # Step 0: Load existing artist names from Supabase
     existing_artists = get_existing_artists_in_supabase()
 
-    # Normalize for matching
-    music_df['artist'] = music_df['artist'].str.lower().str.strip()
-    existing_artists = {a.lower().strip() for a in existing_artists}
 
     # Step 1: One unique URI per artist
     unique_artists = music_df.groupby('artist')['spotify_track_uri'].first().reset_index()
