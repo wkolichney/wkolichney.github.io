@@ -300,39 +300,27 @@ def get_existing_artists_in_supabase():
         st.warning(f"⚠️ Could not load existing Supabase artists: {e}")
         return set()
 
-def get_genres_for_unique_artists(music_df, access_token, progress_file="genre_progress.pkl"):
+def get_genres_for_unique_artists(music_df, access_token):
     """
-    Get genres for unique artists using a pickle file to store progress.
-    Automatically retries artists that hit rate limits. Now skips artists already in Supabase.
+    Get genres for unique artists using Supabase as the only memory source.
+    Automatically skips artists that already exist in Supabase.
     """
-    # Step 0: Load artists already in Supabase
+    # Step 0: Load existing artist names from Supabase
     existing_artists = get_existing_artists_in_supabase()
 
-    # Step 1: Get unique artists and one track URI per artist
-    unique_artists = music_df.groupby('artist')['spotify_track_uri'].first().reset_index()
-    unique_artists = unique_artists.dropna(subset=['artist', 'spotify_track_uri'])
-
-    # Step 2: Filter out artists already in Supabase
-    unique_artists = unique_artists[~unique_artists['artist'].isin(existing_artists)]
-
-    def get_genres_for_unique_artists(music_df, access_token):
-        """ Get genres for unique artists using Supabase as the only memory source. Automatically skips artists that already exist in Supabase.
-        """
-    existing_artists = get_existing_artists_in_supabase()
-
-    # Lowercase everything to be safe
+    # Normalize for matching
     music_df['artist'] = music_df['artist'].str.lower().str.strip()
     existing_artists = {a.lower().strip() for a in existing_artists}
 
-    # Get one URI per artist
+    # Step 1: One unique URI per artist
     unique_artists = music_df.groupby('artist')['spotify_track_uri'].first().reset_index()
     unique_artists = unique_artists.dropna(subset=['artist', 'spotify_track_uri'])
 
-    # Skip artists already in Supabase
+    # Step 2: Filter out already-inserted artists
     remaining = unique_artists[~unique_artists['artist'].isin(existing_artists)]
+    print(f"🎯 Processing {len(remaining)} new artists (skipped {len(unique_artists) - len(remaining)})")
 
-    print(f"🎯 Processing {len(remaining)} artists (skipped {len(unique_artists) - len(remaining)} already in Supabase)")
-
+    # Step 3: Loop with progress
     new_genres = []
     progress_bar = st.progress(0.0)
     status_text = st.empty()
@@ -344,7 +332,7 @@ def get_genres_for_unique_artists(music_df, access_token, progress_file="genre_p
         genre = get_artist_genre_from_track_uri(track_uri, access_token)
 
         if genre == 'rate_limited':
-            st.warning(f"Rate limited on {artist}. Skipping for now.")
+            st.warning(f"Rate limited on {artist}. Skipping.")
             continue
 
         new_genres.append({'artist': artist, 'genre': genre})
@@ -361,67 +349,7 @@ def get_genres_for_unique_artists(music_df, access_token, progress_file="genre_p
     progress_bar.empty()
     status_text.success(f"🎉 Done! Genres fetched for {len(new_genres)} artists.")
 
-    # Return the full table: existing + new
-    updated_table = pd.DataFrame(list(existing_artists)).rename(columns={0: 'artist'})
-    if new_genres:
-        updated_table = pd.concat([updated_table, pd.DataFrame(new_genres)], ignore_index=True)
-
-    return updated_table
-
-    new_genres = []
-    rate_limited_count = 0
-
-    progress_bar = st.progress(0.0)
-    status_text = st.empty()
-
-    for idx, row in remaining.iterrows():
-        artist = row['artist']
-        track_uri = row['spotify_track_uri']
-
-        genre = get_artist_genre_from_track_uri(track_uri, access_token)
-
-        if genre == 'rate_limited':
-            rate_limited_count += 1
-            status_text.warning(f"Rate limited: {artist} — retrying later")
-            with open("rate_limited_artists.pkl", "ab") as f:
-                pickle.dump({'artist': artist, 'spotify_track_uri': track_uri}, f)
-            continue
-
-        new_genres.append({'artist': artist, 'genre': genre})
-
-        try:
-            supabase.table("artist_genres").insert({"artist": artist, "genre": genre}).execute()
-        except Exception as e:
-            # Log silently or to console only, don't spam UI
-            print(f"Supabase insert failed for {artist}: {e}")
-
-        status_text.info(f"🎵 {len(new_genres)}/{len(remaining)}: {artist} → {genre}")
-        progress_bar.progress(min((idx + 1) / len(remaining), 1.0))
-
-        if len(new_genres) > 0 and len(new_genres) % 25 == 0:
-            temp_df = pd.concat([existing_genres, pd.DataFrame(new_genres)], ignore_index=True)
-            with open(progress_file, 'wb') as f:
-                pickle.dump(temp_df, f)
-            st.info(f"✅ Attempted: {len(remaining)} | Successfully added: {len(new_genres)} | Rate-limited: {rate_limited_count}")
-
-        time.sleep(0.1)
-
-    progress_bar.empty()
-    status_text.success(f"🎉 Done! Genres fetched for {len(new_genres)} artists.")
-    if rate_limited_count > 0:
-        st.warning(f"⚠️ {rate_limited_count} artists were rate limited and saved for retry.")
-
-    # Final save
-    if new_genres:
-        all_genres = pd.concat([existing_genres, pd.DataFrame(new_genres)], ignore_index=True)
-        with open(progress_file, 'wb') as f:
-            pickle.dump(all_genres, f)
-        st.write(f"Final results saved: {len(all_genres)} artists with genres")
-    else:
-        all_genres = existing_genres
-        st.write("No new artists successfully processed.")
-
-    return all_genres
+    return pd.DataFrame(new_genres)
 
 
 
