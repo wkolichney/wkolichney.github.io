@@ -544,7 +544,7 @@ Avoid any technical language. Just make it sound like a chill DJ connecting with
 
 
 def call_huggingface_inference(prompt):
-    HF_API_URL = "https://api-inference.huggingface.co/models/mistralai/Mistral-7B-Instruct-v0.1"
+    HF_API_URL = "https://api-inference.huggingface.co/models/HuggingFaceH4/zephyr-7b-beta"
     headers = {
         "Authorization": f"Bearer {st.secrets['HF_API_KEY']}",
         "Content-Type": "application/json"
