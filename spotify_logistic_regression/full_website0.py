@@ -24,6 +24,8 @@ import pickle
 import os
 from supabase import create_client, Client
 ################################################################################################################################
+st.title("Predicting your Spotify Skips with Logisitic Regression")
+
 # Store data from the API Calls
 
 
