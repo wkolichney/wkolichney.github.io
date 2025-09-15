@@ -19,6 +19,14 @@ I'm a Master of Science in Business Analytics graduate from William & Mary and h
 
 ## 💼 Projects
 
+### 🏭 [Chinese Power Plants: Predicting Emissions ](https://github.com/wkolichney/wkolichney.github.io/tree/main/china_analysis/predict_emissions)
+*Fall 2024*  
+Developed a machine learning model trained on U.S. power plant data to forecast CO₂, SO₂, and NOₓ emissions from Chinese overseas power plants
+
+Conducted analysis of plants’ contributions to host countries’ emissions profiles through data visualization
+
+---
+
 ### 🎧 [Don’t Skip Satisfaction](https://wkolichneyappio-3x6bizbeg3vtisoytrfktm.streamlit.app/)  
 *Fall 2024*  
 Built a logistic regression model to predict Spotify user skip behavior. Suggested product features based on listening context. Integrated Python, Streamlit, and API-based data cleaning.
