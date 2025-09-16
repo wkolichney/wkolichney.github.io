@@ -5,7 +5,7 @@
 
 ## 👋 About Me
 
-I'm a Master of Science in Business Analytics graduate from William & Mary and have a background in economics, history, and Mandarin. I enjoy building machine learning models and using data to solve problems in international development, carbon finance, and customer behavior. I currently work in analyzing Chinese loan performance in developing countries.
+I'm a Master of Science in Business Analytics graduate from William & Mary and have a BA in economics and history from Randolph College. I enjoy building machine learning models and using data to solve problems in international development, carbon finance, and customer behavior. I currently work in analyzing Chinese loan performance in developing countries. Speaking Mandarin and rock climning are my two favorite hobbies.
 
 ---
 
@@ -13,7 +13,7 @@ I'm a Master of Science in Business Analytics graduate from William & Mary and h
 
 - **Languages/Tools**: Python, R, SQL, STATA, Tableau, Streamlit, TensorFlow, Hugging Face, Spark, Docker  
 - **Tech Focus**: NLP · Predictive Modeling · Economic Data · Visualization  
-- **Languages**: English (native), Mandarin (ACTFL OPI rated)
+- **Languages**: English (native), Mandarin (lower-advanced; ACTFL OPI rated)
 
 ---
 
