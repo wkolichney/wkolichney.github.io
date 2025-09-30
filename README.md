@@ -5,7 +5,7 @@
 
 ## 👋 About Me
 
-I'm a Master of Science in Business Analytics graduate from William & Mary and have a BA in economics and history from Randolph College. I enjoy building machine learning models and using data to solve problems in international development, carbon finance, and customer behavior. I currently work in analyzing Chinese loan performance in developing countries. Speaking Mandarin and rock climning are my two favorite hobbies.
+I'm a Master of Science in Business Analytics graduate from William & Mary and have a BA in economics and history from Randolph College. I enjoy building machine learning models and using data to solve problems in international development, carbon finance, and customer behavior. I currently work in analyzing Chinese loan performance in developing countries. Speaking Mandarin and rock climbing are my two favorite hobbies.
 
 ---
 
