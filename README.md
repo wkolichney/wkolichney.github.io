@@ -9,6 +9,20 @@ I'm a Master of Science in Business Analytics graduate from William & Mary and h
 
 ---
 
+## Work Experience
+
+### Boston University Global Development Policy Center's Global China Initiative - Data Analysis for Transparency and Accountability: Data Analyst**
+*Oct 2025 - Present*
+[**See Repository**](https://github.com/wkolichney/boston_university_global_development_policy_center)
+
+### AidData: Research Data Associate
+- Created automated data transformation tool in Python to apply observed loan-level data onto an amortization table
+- Compiled and verified 10+ loan-level debt profiles from 200+ Chinese international development loans, supporting
+economic research on debt sustainability with official Chinese creditors
+- Reviewed and edited country-level loan profile deliverable for submission to a Swiss government agency
+- Automated data quality inspection in Python that highlighted potential data misinputs, aiding in cleaning 10% of the dataset
+- Created 24 original data visualizations in R coding to support a policy presentation for US government clients
+
 ## 🛠️ Skills
 
 - **Languages/Tools**: Python, R, SQL, STATA, Tableau, Streamlit, TensorFlow, Hugging Face, Spark, Docker  
@@ -56,9 +70,6 @@ Built a stochastic revenue model in R using Google Trends + market data. Predict
 ---
 
 ## 📚 Research Highlights
-
-- **AidData (William & Mary)**  
-  Flagged 200+ data issues in Chinese development loan database. Standardized amortization data for predictive modeling.
 
 - **Senior Theses (Randolph College)**  
   - *Economics*: Modeled U.S.-China trade's hidden carbon emissions (30K+ datapoints)  
