@@ -14,12 +14,12 @@ I'm a Master of Science in Business Analytics graduate from William & Mary and h
 ### Boston University Global Development Policy Center's Global China Initiative - Data Analysis for Transparency and Accountability: Data Analyst
 *Oct 2025 - Present*
 <br>
-[**See Public Repository**](https://github.com/wkolichney/boston_university_global_development_policy_center)
+[See Public Repository](https://github.com/wkolichney/boston_university_global_development_policy_center)
 
 ### AidData: Research Data Associate
 *Dec 2024 - Oct 2025*
 <br>
-[**See Public Repository**](https://github.com/wkolichney/wkolichney.github.io/tree/main/AidData)
+[See Public Repository](https://github.com/wkolichney/wkolichney.github.io/tree/main/AidData)
 
 - Created automated data transformation tool in Python to apply observed loan-level data onto an amortization table
 - Compiled and verified 10+ loan-level debt profiles from 200+ Chinese international development loans, supporting
