@@ -1,0 +1,412 @@
+---
+title: "America's Environmental Kuznets Curve: Embodied Emissions of the US-China Trade"
+author: "William Olichney"
+format: html
+---
+
+
+#### Figure 1
+```{r, echo= FALSE, message = FALSE, warning = FALSE}
+#| echo: false
+rm(list=ls())
+library(tidyverse)
+library(ggplot2)
+library(ggthemes)
+library(viridis)
+library(leaps)
+# Preparing carbon per capita for each country and carbon demanded
+china_dem <- read_csv("https://wkolichney.github.io/Data/china_demand_us_made.csv")
+us_dem <- read_csv("https://wkolichney.github.io/Data/us_demand_china_made.csv")
+
+
+world_carb_cap <- read_csv("https://wkolichney.github.io/Data/co2_capita.csv")
+
+world_carb_cap %>% filter(Entity == "China" | Code == "USA") -> world_carb_cap
+
+
+ggplot(world_carb_cap, aes(x = Year, y = `Annual CO₂ emissions (per capita)`, color = Entity)) +
+  geom_line() +
+  geom_vline(xintercept = 1995, linetype = "dashed", color = "red") +
+     annotate("text", x = 1995, y = max(world_carb_cap$`Annual CO₂ emissions (per capita)`), 
+           label = "Trade Emissions Data", vjust = -0.5, color = "red") + 
+  labs(
+    title = "Annual CO2 Emissions Per Capita",
+    x = "Year",
+    y = expression("Annual CO"[2] * " Emissions (per capita, in tonnes)")
+  ) +
+  scale_color_viridis_d() +  # Use this for discrete colors
+  theme_minimal()
+
+
+```
+### **Introduction**
+
+&nbsp;&nbsp;&nbsp;&nbsp;“China is the biggest environmental polluter in the World [sic], by far. They do nothing to clean up their factories and laugh at our stupidity (Trump, 2013)!” Americans may place blame on China’s economy for currently producing the most carbon emissions. At the same time, many Americans loathe the trade deficit in China, totaling $28.3 billion. Low environmental regulations coupled with comparatively lower investment in technologies to clean/prevent carbon emissions influences the value of Chinese goods, undermining the value of American goods. Cheap Chinese goods are infamous for causing American companies to emigrate to China along with job opportunities.
+
+&nbsp;&nbsp;&nbsp;&nbsp;However, in a time where climate assurances ratchet up in line with the Paris Climate Agreement, how much carbon emissions does the US dodge by trading with China? By comparing America’s growth rate of GDP per capita alongside its growth rate of carbon emissions, it seems like the US is on track to separate economic growth from CO₂. Severing a growing GDP, such as the expansion of manufacturing, consumption, and government spending, from depending on carbon emissions should create a society that avoids the worst effects of climate change but still benefits from a rising GDP per capita. However, the problem with a single country lowering its emissions is that global environmental damage requires all countries to participate. If America benefits from a higher standard of living due to increasing GDP per capita while carbon emissions are effectively outsourced to China, the threat of global environmental havoc remains. The question is, then: **how much responsibility is America dodging for global emissions while appearing to approach climate goals?**
+
+### **Literature Review**
+
+&nbsp;&nbsp;&nbsp;&nbsp;The US’s consumption of Chinese imports creates a large trade balance not only in value of money, but also in carbon emissions. China emits hundreds of Million Metric Tonnes of CO2 to produce goods and services for the United States. The US does also produce many Million Metric Tonnes of CO2 to export to China, but relatively far less (Liu et al., 2020). This is due in part to the types of goods that are traded. Chinese machinery and equipment sent to the US produce the bulk of carbon (Liu et al., 2020). Meanwhile, the US has more diverse industries that are not very carbon intensive, such as the chemical industry (Liu et al., 2020).
+
+&nbsp;&nbsp;&nbsp;&nbsp;Researchers in Liu et al’s article delve further into the costs that the Chinese economy suffers from this situation. For example, Chinese glass companies in quality are on par with EU companies, but produce more environmental damage while selling at a cheaper cost (Liu et al., 2020). While this research does not include this following aspect of environmental economics, this could mean that these Chinese firms’ marginal private costs are not equal to the marginal social costs. Marginal Private Costs (MPC) include cost of production to an individual firm, while marginal social costs (MSC) include damage to the general population from that firm, like environmental costs (Hussen, 2013). When firms are made responsible, or “internalize” these costs, then these firms are paying for the external damages, like carbon emissions or health effects (Hussen, 2013). In some cases, a government will force a firm to internalize Marginal Social Costs. For instance, if a cigarette company is forced to pay taxes that are equivalent to what they impact on the healthcare system, they have internalized the MSC. If Chinese firms are more pressed to cover the social costs of production, then the price of Chinese goods will likely increase depending on the good’s elasticity.
+
+&nbsp;&nbsp;&nbsp;&nbsp;In Yan and Yang’s analysis of this problem, the United States avoided 252.33 Million Metric Tonnes (MMT) of CO2 in 2007 by importing from China (Yan & Yang, 2009). If the United States had produced this carbon to meet its consumption, America’s CO2 emissions would have increased 2-4% (Yan & Yang, 2009). This 252.33 MMT of CO2 from 2007 accounted for 14-22% of China’s emissions that year (Yan & Yang, 2009). Consumption from the United States obviously plays a large part in China’s responsibility in global emissions (Yan & Yang, 2009). Since China’s industry is more inefficient than the US’s and lacks their green technology, China emits more emissions into the world than the US would have to meet this consumption (Yan & Yang, 2009). This net increase in global emissions by the US shouldering production for its consumption to China stems from China’s CO2 intensive economy, and the sectors that export to America are especially carbon intensive compared to the sectors that America exports to China (Yan & Yang, 2009). The authors take these results and conditions to advise policies such as freer trade of “green” technologies, China’s need to restructure the export market, and improved international accounting of CO2 emissions (Yan & Yang, 2009). For the improved international accounting of CO2 emissions, the Rules of the Game are based on the Kyoto Protocol, which ignores “consumption-based CO2 accounting (Yan & Yang, 2009).” The Kyoto Protocol has been superseded by the Paris Agreement since the writing of this article.
+
+&nbsp;&nbsp;&nbsp;&nbsp;What differs the most from Yan and Yang’s versus Liu et al.’s research is that Yan and Yang include that there is an increase in total carbon emissions in the world because America consumes so much from Chinese carbon intensive industries rather than American industries producing these goods. What lacks and needs an update to these research articles is the complete change from the Kyoto Protocol in the international stage and that China even more recently left the Paris Agreement. This means that China has less international obligations to fulfill for lowering carbon emissions. If research further points out that America is approaching Paris Agreement level commitments by offshoring carbon emissions to a non-Paris Agreement country, this points out a weakness of environmental economics' reach in international economics and a weakness of the Paris Agreement.
+
+&nbsp;&nbsp;&nbsp;&nbsp;What this research intends to do differently from Yan and Yang’s/Liu et al.'s research is the use of the Environmental Kuznets Curve (EKC). In research on a similar topic, but in the context of emissions from OECD vs. non-OECD countries, researchers added carbon emissions that developed countries essentially demanded from developing countries because of the carbon intensive industries from which higher income countries imported goods. The Environmental Kuznets Curve has a contested traditional hypothesis: As a country's growth rate for GDP per capita increases, the growth rate of CO2 will also increase (Hussen, 2013). At a threshold point, this becomes an inverse relationship; the growth rate of GDP per capita will increase while the growth rate of CO2 per capita will decrease (Hussen, 2013). A country can have its cake and eat it too: A country can grow wealthier while decreasing carbon emissions. This is often called "Sustainable Growth." However, in many cases environmental legislation can be rolled back due to political will, like countries leaving the Paris Agreement, and this CO2 and GDP per capita relationship can oscillate from positive to negative and negative to positive. This is where my application will differ from Kang’s OECD vs. non-OECD EKC. To account for an oscillating EKC, I will use Stern’s approach. Stern’s EKC emphasizes the need to test for increasing degrees of the polynomial expression in a regression used to create the curve, such as up to the quartic level (Stern, 2004). Overall, this should account for America currently having an inverse relationship with economic growth and CO2 emissions. After accounting for emissions in China produced to meet America’s demand into America’s EKC, it could prove that America’s economic growth leads to growth in CO2 emissions.
+
+### Data and Methodology
+
+ &nbsp;&nbsp;&nbsp;&nbsp;This research highlights the difference between China’s and America’s two Environmental Kuznets Curves: Before adding CO2 data from Chinese exports versus after adding this data. The EKC model requires growth rates of GDP per capita and growth rates of CO2 emissions per capita. GDP and population data can be found in World Development Indicators (World Development Indicators | DataBank, n.d.). Carbon emissions data comes from Our World in Data (Ritchie et al., 2020). Both of these data sources will construct America’s and China’s EKCs without accounting for the balance of emissions between the two countries. To account for the balance of emissions between the two, data needs to be added from the OECD which calculates the net value of carbon exchange (OECD.Stat, n.d.). From 1995 to 2020, the OECD displays how much more CO2 China produces to export to America than the US produces to export to China, measured in Million Metric Tonnes.
+
+&nbsp;&nbsp;&nbsp;&nbsp;The growth rate of CO2 per capita is the endogenous variable while the growth rate of GDP per capita is the exogenous variable. This EKC equation will account for possible changing inverse/positive correlation between the growth rate of CO2 emissions per capita and the growth rate of GDP per capita:
+
+&nbsp;&nbsp;&nbsp;&nbsp;**lnCO2/capita = 𝛃₀ + 𝛃₁(lnGDP/capita) + 𝛃₂(lnGDP/capita)² + 𝛃₃(lnGDP/capita)³ + 𝛃₄(lnGDP/capita)⁴ ... + 𝜺.**
+
+&nbsp;&nbsp;&nbsp;&nbsp;Where:
+<br>
+**lnCO2/capita** is the growth rate of CO2 emissions per capita
+<br>
+**lnGDP/capita** is the growth rate of GDP per capita
+<br>
+**lnGDP/capita²** = is the growth rate of GDP per capita squared, which will capture whether the relationship between the growth rate of CO2 emissions and the growth rate of GDP per capita is inversely correlated. A traditional EKC polynomial equation would stop at this quadratic degree, but this equation will test for higher degrees to determine whether a growing economy will lead to further changes between the relationship between growth of GDP per capita and growth of CO2 emissions.
+<br>
+**lnGDP/capita³** = is the growth rate of GDP per capita cubed, which will capture whether the relationship between the growth rate of CO2 emissions and the growth rate of GDP per capita is positively correlated. The typical EKC hypothesis will argue that, as a country develops, starting industries will heavily pollute the environment while greatly increasing GDP. At a certain point, people will demand a cleaner environment as they become wealthier (Hussen, 2013). Taking the EKC equation to this cubic level allows for the possibility that the growth rate of CO2 emissions will again increase as the growth rate of GDP per capita increases.
+<br>
+**lnGDP/capita⁴** is the growth rate of GDP per capita to the quartic level. This will test for the relationship between the growth rate of CO2 and GDP per capita to be inversely related or not. This research will test at the quintic or even sextic level to best capture the relationship between growth of carbon emissions and growth of GDP per capita.
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+
+
+
+### Results
+```{r echo= FALSE, message = FALSE, warning = FALSE}
+world_carb_cap %>% filter(Year >= 1995, Year <= 2020) -> world_carb_cap
+world_carb_cap %>% filter(Entity == "China") -> china_carb_cap
+world_carb_cap %>% filter(Code == "USA") -> us_carb_cap
+
+rm(world_carb_cap)
+
+# Make embodied emissions data per capita
+
+china_pop <- read_csv("https://wkolichney.github.io/Data/china_pop.csv")
+us_pop <- read_csv("https://wkolichney.github.io/Data/us_pop.csv")
+
+us_dem <- us_dem$OBS_VALUE
+china_dem <- china_dem$OBS_VALUE
+china_pop <- china_pop$China
+us_pop <- us_pop$USA
+
+us_pop %>% as.numeric(us_pop) -> us_pop
+china_pop %>% as.numeric(us_pop) -> china_pop
+
+us_dem <- us_dem * 1000000  #from million tonnes to tonnes
+china_dem <- china_dem * 1000000 #from million tonnes to tonnes
+
+us_dem <- us_dem-china_dem
+china_dem <- china_dem - us_dem
+
+cap_us_dem <- us_dem / us_pop
+cap_china_dem <- china_dem / china_pop
+
+```
+
+```{r echo= FALSE, message = FALSE, warning = FALSE}
+#put demand per capita to the right data frame, add em in
+
+
+us_carb_cap$cap_us_dem <- cap_us_dem
+china_carb_cap$cap_china_dem <- cap_china_dem
+
+us_carb_cap$total_carb <- us_carb_cap$cap_us_dem + us_carb_cap$`Annual CO₂ emissions (per capita)`
+
+china_carb_cap$total_carb <- china_carb_cap$cap_china_dem + china_carb_cap$`Annual CO₂ emissions (per capita)`
+```
+
+#### Figure 2
+```{r echo= FALSE, message = FALSE, warning = FALSE}
+#check differences of the graphs
+
+row= c(1:26)
+us_carb_cap$ID <- row
+china_carb_cap$ID <- row
+
+china_us <- full_join(us_carb_cap, china_carb_cap, by = "ID")
+
+
+# Assuming your data frame is named carbon_data
+long_data <- china_us %>%
+  select(Year = Year.x, Entity = Entity.x, total_carb = total_carb.x) %>%
+  bind_rows(
+    china_us %>%
+      select(Year = Year.y, Entity = Entity.y, total_carb = total_carb.y))
+
+# Create the line chart
+world_carb_cap <- read_csv("https://wkolichney.github.io/Data/co2_capita.csv")
+world_carb_cap %>% filter(Entity == "China" | Code == "USA") -> world_carb_cap
+world_carb_cap %>% filter(Year >= 1995, Year <= 2020) -> world_carb_cap
+
+ggplot(world_carb_cap, aes(x = Year, y = `Annual CO₂ emissions (per capita)`, color = Entity)) +
+  geom_line() +
+  labs(
+    title = "Annual CO2 Emissions Per Capita, Without Foreign Emissions",
+    x = "Year",
+    y = expression("Annual CO2 Emissions (tonnes)")
+  ) +
+  theme_minimal()
+
+
+```
+
+
+
+<br>
+
+#### Figure 3
+```{r echo= FALSE, message = FALSE, warning = FALSE}
+ggplot(long_data, aes(x = Year, y = total_carb, color = Entity)) +
+  geom_line() +
+  labs(
+    title = "Total CO2 Emissions Per Capita, With Foreign Emissions",
+    x = "Year",
+    y = expression("Total CO2 Emissions (tonnes)")
+  ) +
+  theme_minimal()
+```
+
+```{r echo= FALSE, message = FALSE, warning = FALSE}
+#Now for GDP
+gdp <- read_csv("https://wkolichney.github.io/Data/gdp_cap.csv")
+
+us_gdp <- gdp %>% select(Time,`United States`) %>% rename(gdp = `United States`)
+china_gdp <- gdp %>% select(Time, `China`) %>% rename(gdp = `China`)
+
+
+##Logging co2 data##
+#embodied
+us_co2_post<- long_data %>% filter(Entity == "United States")
+china_co2_post <- long_data %>% filter(Entity == "China")
+
+
+
+#not embodied
+us_pre_co2 <- world_carb_cap %>% filter(Entity == "United States") %>% rename(total_carb = `Annual CO₂ emissions (per capita)`)
+china_pre_co2 <- world_carb_cap %>% filter(Entity == "China") %>% rename(total_carb = `Annual CO₂ emissions (per capita)`)
+
+
+```
+
+#### Regression Summary, United States, Before Embodied Emissions
+```{r echo= FALSE, message = FALSE, warning = FALSE}
+## regresssion and graphing, USA, also you have to find the right carbon amounts. You got lost in emb carbon and non emb carbon
+#now I need GDP
+
+#pre,us
+us_pre_co2 <- left_join(us_pre_co2,us_gdp,
+                        join_by(Year==Time))
+
+#pre,china
+china_pre_co2 <- left_join(china_pre_co2, china_gdp,
+                           join_by(Year==Time))
+
+#post,us
+us_co2_post<- left_join(us_co2_post,us_gdp,
+                        join_by(Year==Time))
+
+#post,china
+china_co2_post <- left_join(china_co2_post,china_gdp,
+                            join_by(Year==Time))
+
+#regression,pre,us
+reg_pre_us <- lm(log(total_carb) ~ log(gdp)+I((log(gdp)^2)), data = us_pre_co2)
+summary(reg_pre_us)
+```
+&nbsp;&nbsp;&nbsp;&nbsp;Before accounting for the difference of emissions that the United States demands from China, the best description for the US's relationship between economic growth and carbon emissions is a binomial model. This means that in the late 1990s and early 2000s, economic growth and carbon emissions had a positive relationship. Economic growth led to more emissions. Later, the relationship flips. Economic growth slowed the rate of CO2 emissions. In the eyes of supporters of the Sustainable Growth model, the United States is on the right track. While there was a period where a growth in wealth led to a growth in emissions, this is no longer the case. People are getting wealthier while emissions are slowing. Therefore, it appears that the United States can continue to grow its economy while simultaneously addressing its CO2 emissions impact. 
+
+#### Regression Summary, United States, After Embodied Emissions
+```{r echo= FALSE, message = FALSE, warning = FALSE}
+#regression, post, us
+reg_post_us <- lm(log(total_carb) ~ log(gdp)+I((log(gdp)^2)), data = us_co2_post)
+summary(reg_post_us)
+
+
+
+```
+&nbsp;&nbsp;&nbsp;&nbsp;Even after adding the difference of emissions that the United States demands from China, the best description for the US's relationship between economic growth and carbon emissions is a binomial model. This means that in the late 1990s and early 2000s, economic growth and carbon emissions had a positive relationship. Economic growth led to more emissions. Later, the relationship flips. Economic growth slowed the rate of CO2 emissions. While the United States certainly added to the emissions of the world by its demand for Chinese goods and services, it does not fundamentally change the US's relationship of its economy and how much emissions its adds to the world. 
+
+#### Figure 4
+```{r echo= FALSE, message = FALSE, warning = FALSE}
+#pre US
+ggplot() +
+  geom_point(aes(x = us_pre_co2$gdp, y = us_pre_co2$total_carb), color = "#440154FF") +
+  geom_line(aes(x = us_pre_co2$gdp, y = exp(predict(reg_pre_us, newdata = us_pre_co2))), color = "#1F968BFF") +
+  scale_x_log10() +
+  scale_y_log10() +
+  ggtitle('US EKC, Before Embodied Emissions') +
+  xlab("GDP per Capita (log scale)") +
+  ylab("Carbon per Capita (log scale)")
+
+```
+&nbsp;&nbsp;&nbsp;&nbsp;Figure 4 visually represents the US's relationship between its economic growth and carbon emission growth. As GDP per capita grows, there is at first a positive growth rate in carbon emissions. However, as GDP per capita grows or as the American population gets wealthier, there is a slowing in the growth rate of carbon emissions. 
+
+#### Figure 5
+```{r echo= FALSE, message = FALSE, warning = FALSE}
+#post us
+#ooh what if i keep the previous regression and use MSE sorta stuff to show how innacurate pre including emissions regression line is to embodied emissions
+ggplot() +
+  geom_point(aes(x = us_co2_post$gdp, y = us_co2_post$total_carb), color = "#440154FF") +
+  geom_line(aes(x = us_co2_post$gdp, y = exp(predict(reg_pre_us, newdata = us_co2_post))), color = "#1F968BFF") +
+  scale_x_log10() +
+  scale_y_log10() +
+  ggtitle('US EKC, Including Embodied Emissions') +
+  xlab("GDP per Capita (log scale)") +
+  ylab("Carbon per Capita (log scale)")
+
+
+```
+&nbsp;&nbsp;&nbsp;&nbsp;Figure 5 visually represents the regressions model built from the US's CO2 and GDP per capita growth rates before accounting for the emissions it demands from China, but applied to the CO2 data **AFTER** adding the difference of emissions it demands from China. This was done to visually represent that the fundamental relationship has not changed, but one can see how it underpredicts the CO2 growth rate given the GDP per capita. 
+
+#### Regression Summary, China, Before Embodied Emissions
+```{r echo=FALSE,message = FALSE, warning = FALSE}
+############ Use Best Selection ####################
+
+
+#regression,pre,China
+reg_pre_china <- lm(log(total_carb) ~ log(gdp)+I((log(gdp)^2))+I((log(gdp)^3))+I((log(gdp)^4)), data = china_pre_co2)
+summary(reg_pre_china)
+
+
+
+```
+&nbsp;&nbsp;&nbsp;&nbsp;Before subtracting the difference of demanded emissions between the from China, the best description for China's relationship between economic growth and carbon emissions is a quartic model. In this case, as the data starts from 1995, China at first has a negative relationship between the growth rate of CO2 per capita and the growth rate of GDP per capita. Then a positive relationship, then again a negative relationship, and finally a positive relationship. 
+
+&nbsp;&nbsp;&nbsp;&nbsp;When narrowing our scope of time from 1995 to 2020, China's relationship between carbon and its economy is volatile. If China's economic relationship to carbon emissions continue from last observed relationship, a positive one, then China would not be following the sustainable growth model. Additionally, if China continues this volatile, but upward trending relationship between economic growth and Carbon, best visualized in Figure 7, China would still fail to follow the Sustainable Growth model: China can not grow its economy without increasing its growth of emissions. 
+
+#### Regression Summary, China, After Embodied Emissions
+```{r echo= FALSE, message = FALSE, warning = FALSE}
+##############################################################################
+# Post
+
+
+#regression, post, China
+reg_post_china <- lm(log(total_carb) ~ log(gdp)+I((log(gdp)^2))+I((log(gdp)^3))+I((log(gdp)^4)), data = china_co2_post)
+summary(reg_post_china)
+
+#wow, different than my senior research. Way more obvious that it goes from quartic to cubic model
+#China more based on American trade than American based on China?
+```
+&nbsp;&nbsp;&nbsp;&nbsp;Even after subtracting the difference in demanded emissions from trade between America and China from China's carbon accounting, China still holds a volatile and ultimately upward trending relationship the growth rate of its GDP per capita and the growth rate of Carbon emissions per capita. Even if China shoulders a heavy amount of carbon production in order to make American goods than America does to create Chinese goods, giving that difference of emissions to America's carbon accounting from China's does not ultimately change the relationships either country has between its carbon and its economy.  
+
+#### Figure 7
+
+```{r echo=FALSE,message = FALSE, warning = FALSE}
+#China,pre
+
+
+ggplot() +
+  geom_point(aes(x = china_pre_co2$gdp, y = china_pre_co2$total_carb), color = "#440154FF") +
+  geom_line(aes(x = china_pre_co2$gdp, y = exp(predict(reg_pre_china, newdata = china_pre_co2))), color = "#1F968BFF") +
+  scale_x_log10() +
+  scale_y_log10() +
+  ggtitle('China EKC, Before Embodied Emissions') +
+  xlab("GDP per Capita (log scale)") +
+  ylab("Carbon per Capita (log scale)")
+
+```
+&nbsp;&nbsp;&nbsp;&nbsp;In Figure 7, one visualize the regression created to describe China's relationship between Carbon emissions growth and economic growth. The relationship is rather volatile, fluctuating from negative, to positive, negative, and finally at positive. 
+
+#### Figure 8
+
+```{r echo=FALSE,message = FALSE, warning = FALSE}
+#China,post
+ggplot() +
+  geom_point(aes(x = china_co2_post$gdp, y = china_co2_post$total_carb), color = "#440154FF") +
+  geom_line(aes(x = china_co2_post$gdp, y = exp(predict(reg_pre_china, newdata = china_co2_post))), color = "#1F968BFF") +
+  scale_x_log10() +
+  scale_y_log10() +
+  ggtitle('China EKC, After Embodied Emissions') +
+  xlab("GDP per Capita (log scale)") +
+  ylab("Carbon per Capita (log scale)")
+
+```
+
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;Using the regression model created from China's pre-endogenous emissions period, but applying it to China's post-endogenous period, one can see that the model does overpredict China's carbon growth rate, but that the fundamental relationship does not change.
+
+### Conclusion
+
+&nbsp;&nbsp;&nbsp;&nbsp;While the Environmental Kuznets Curve's traditional hypothesis is inaccurate, because a country's economic relationship with carbon will likely continue to fluctuate over time, it serves as a better tool to describe a country's relationship between its economic growth and carbon emissions growth. Used in the manner of this paper, the EKC can show if that relationship changes using a different manner of carbon accounting, such as accounting for the United States demanding more carbon emissions produced in the world than China demands the United States.
+
+&nbsp;&nbsp;&nbsp;&nbsp;A country's carbon emission data does not typically account for the carbon produced in other countries from its imports. However, this is an oversight. In the traditional accounting, developed countries appear to pollute the world less than they truly are. The lifestyle of people in developed countries are carbon intensive, but this does not quite show up in the traditional carbon accounting, because those carbon intensive goods and services that make up a wealthier lifestyle are produced in developing countries, such as textiles.  
+
+&nbsp;&nbsp;&nbsp;&nbsp;Using the EKC as a statistical tool showed that the United States did not have a fundamental change in the relationship between GDP per capita and the growth rate of Carbon per capita. It would be an exaggeration to say that the American lifestyle with its simultaneous appearance of slowing carbon emissions is shouldered by Chinese exports. Neither did China appear to be slowing its carbon emissions if the United States took responsibility of its surplus carbon produced in this bilateral trade. 
+
+&nbsp;&nbsp;&nbsp;&nbsp;So, the United States is not using China to offshore climate responsibility. Since the beginning of writing this paper, the United States has once again left the Paris Agreement. President Trump's tariffs may inspire carbon intensive industries to come back to the US. The United States seems to have no international responsibility for how it produces emissions in the world, domestically or externally. If the United States rejoins the Paris Agreement again and attempts to ratchet down emissions, then this research should be revived to serve as a watchdog for developed countries dodging climate responsibility by heavily importing carbon intensive goods and services from developing countries. 
+
+&nbsp;&nbsp;&nbsp;&nbsp;Despite this research no longer applying to modern conditions, using the EKC as a statistical tool has other applications. China's immense external lending increases the stability of China's supply chain and increases its ability to be a value-added commodity exporter, rather than being the source of carbon intensive cheaper commodities as shown in this research. In addition to analyzing China's official lending in terms of debt sustainability in developing countries and China's increased national security by securing rights to rare earth minerals, there should be an environmental economic approach. 
+
+&nbsp;&nbsp;&nbsp;&nbsp;One method of performing an environmental economic analysis could lie in using the OECD data source for bilateral carbon deficits/surpluses as this research has used between the US and China, but analyze China and its various recipients of external lending. Now that China has heavily invested in other countries, have those other countries shouldered the responsibility for producing China's carbon intensive goods and services? Could the EKC as a statistical tool reveal that China's economic relationship to carbon changes because it can rely on its recipient countries to produce carbon intensive goods for itself? 
+
+&nbsp;&nbsp;&nbsp;&nbsp;While China is not in the Paris Accords, and seemingly does not have an international responsibility to reduce carbon emissions, it still attempts to reduce carbon emissions, hoping to reach "net-zero emissions before 2060"(https://chinapower.csis.org/china-energy-security/). So, as there is incentive to reduce carbon emissions, there is incentive to have other countries shoulder those emissions. With more time, this research will be applied to China's carbon accounting while considering carbon in its bilateral trade with its major financial recipients. 
+
+
+
+### Works Cited
+
+Bureau, U. C. (n.d.). International Trade. Retrieved February 26, 2024, from https://www.census.gov/foreign-trade/balance/c5700.html
+
+Hussen, A. (2013). Principles of Environmental Economics and Sustainability: An Integrated Economic and Ecological Approach (3rd ed.). Routledge.
+
+Jackson, Ti. (2011). Prosperity Without Growth: Economics for a Finite Planet. Earthscan Publications Ltd.
+
+Kang, H. (2021). CO2 Emissions Embodied in International Trade and Economic Growth: Empirical Evidence for OECD and Non-OECD Countries. Sustainability, 13(21), Article 21. https://doi.org/10.3390/su132112114
+
+Li, T., Wang, Y., & Zhao, D. (2016). Environmental Kuznets Curve in China: New evidence from dynamic panel analysis. Energy Policy, 91, 138–147. https://doi.org/10.1016/j.enpol.2016.01.002
+
+Liu, Z., Meng, J., Deng, Z., Lu, P., Guan, D., Zhang, Q., He, K., & Gong, P. (2020). Embodied carbon emissions in China-US trade. Science China Earth Sciences, 63(10), 1577–1586. https://doi.org/10.1007/s11430-019-9635-x
+
+OECD.Stat. (n.d.). Carbon dioxide emissions embodied in international trade (2021 ed.). Retrieved October 5, 2023, from https://stats.oecd.org/Index.aspx?DataSetCode=IO_GHG_2021#
+
+Pugel, T. (2015). International Economics (16th ed.). Mcgraw-Hill.
+
+Ritchie, H., Roser, M., & Rosado, P. (2020). CO₂ and Greenhouse Gas Emissions. Our World in Data. https://ourworldindata.org/co2/country/united-states
+
+Stern, D. I. (2004). The Rise and Fall of the Environmental Kuznets Curve. World Development, 32(8), 1419–1439. https://doi.org/10.1016/j.worlddev.2004.03.004
+
+Trump, D. (2013, March 30). China is the biggest environmental polluter in the World, by far. They do nothing to clean up their factories and. X. https://twitter.com/realDonaldTrump
+
+World Development Indicators | DataBank. (n.d.). Retrieved October 5, 2023, from https://databank.worldbank.org/source/world-development-indicators#
+Yan, Y., & Yang, L. (2009). CO2 Emissions Embodied in China–U.S. Trade. Taylor & Francis Group, 7(3), 3–10.
+
+
