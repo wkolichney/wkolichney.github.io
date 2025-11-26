@@ -13,6 +13,7 @@ I'm a Master of Science in Business Analytics graduate from William & Mary and h
 
 ### Boston University Global Development Policy Center's Global China Initiative - Data Analysis for Transparency and Accountability: Data Analyst
 *Oct 2025 - Present*
+<br>
 [**See Repository**](https://github.com/wkolichney/boston_university_global_development_policy_center)
 
 ### AidData: Research Data Associate
