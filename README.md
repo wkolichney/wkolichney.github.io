@@ -28,7 +28,7 @@ economic research on debt sustainability with official Chinese creditors
 - Automated data quality inspection in Python that highlighted potential data misinputs, aiding in cleaning 10% of the dataset
 - Created 24 original data visualizations in R coding to support a policy presentation for US government clients
 
-## 🛠️ Skills
+## Skills
 
 - **Languages/Tools**: Python, R, SQL, STATA, Tableau, Streamlit, TensorFlow, Hugging Face, Spark, Docker  
 - **Tech Focus**: NLP · Predictive Modeling · Economic Data · Visualization  
