@@ -16,6 +16,10 @@ I'm a Master of Science in Business Analytics graduate from William & Mary and h
 <br>
 [See Public Repository](https://github.com/wkolichney/boston_university_global_development_policy_center)
 
+-	Co-authored blog post clarifying the scope, methodology, and comparative strengths of major third-party datasets tracking China’s overseas development finance, energy investment, and financial safety nets, supporting more accurate research and policy interpretation
+-	Led a research team to systematically restore and validate 500+ source citations for Chinese loan records, ensuring data integrity and meeting a fixed public release deadline
+-	Currently co-authoring a research bulletin on Chinese overseas development finance in Asia, examining linkages between trade, foreign direct investment, and lending
+
 ### AidData: Research Data Associate
 *Dec 2024 - Oct 2025*
 <br>
